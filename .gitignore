@@ -1,0 +1,14 @@
+
+# Composer dependencies
+/vendor/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Operating system files
+.DS_Store
+
+# PHPUnit cache
+/.phpunit.cache/
