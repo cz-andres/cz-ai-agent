@@ -25,7 +25,7 @@ use RuntimeException;
 final class DatabaseQuestionAgentTest extends TestCase
 {
     private string $directory;
-    private string $snapshotPath;
+    private string $knowledgePath;
     private PDO $pdo;
 
     protected function setUp(): void
@@ -35,7 +35,7 @@ final class DatabaseQuestionAgentTest extends TestCase
             . bin2hex(random_bytes(8));
 
         mkdir($this->directory, 0775, true);
-        $this->snapshotPath = $this->directory . '/snapshot.json';
+        $this->knowledgePath = $this->directory . '/knowledge';
 
         $this->pdo = new PDO('sqlite::memory:');
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -50,12 +50,8 @@ final class DatabaseQuestionAgentTest extends TestCase
 
     protected function tearDown(): void
     {
-        if (is_file($this->snapshotPath)) {
-            unlink($this->snapshotPath);
-        }
-
         if (is_dir($this->directory)) {
-            rmdir($this->directory);
+            $this->removeDirectory($this->directory);
         }
     }
 
@@ -244,7 +240,7 @@ final class DatabaseQuestionAgentTest extends TestCase
         };
 
         $loader = new KnowledgeBaseLoader(
-            new KnowledgeBaseStore($this->snapshotPath),
+            new KnowledgeBaseStore($this->knowledgePath),
         );
 
         $agent = new DatabaseQuestionAgent(
@@ -285,7 +281,7 @@ final class DatabaseQuestionAgentTest extends TestCase
         };
 
         $loader = new KnowledgeBaseLoader(
-            new KnowledgeBaseStore($this->snapshotPath),
+            new KnowledgeBaseStore($this->knowledgePath),
         );
 
         return new DatabaseQuestionAgent(
@@ -306,8 +302,8 @@ final class DatabaseQuestionAgentTest extends TestCase
     {
         $fingerprint = new SchemaFingerprint();
 
-        (new KnowledgeBaseStore($this->snapshotPath))->save([
-            'format_version' => 1,
+        (new KnowledgeBaseStore($this->knowledgePath))->save([
+            'format_version' => 2,
             'generated_at' => gmdate('c'),
             'source' => [
                 'database' => $schema['database'],
@@ -329,6 +325,25 @@ final class DatabaseQuestionAgentTest extends TestCase
                 'inferred_candidates' => [],
             ],
         ]);
+    }
+
+    private function removeDirectory(string $directory): void
+    {
+        foreach (new \DirectoryIterator($directory) as $entry) {
+            if ($entry->isDot()) {
+                continue;
+            }
+
+            $entryPath = $entry->getPathname();
+
+            if ($entry->isDir() && !$entry->isLink()) {
+                $this->removeDirectory($entryPath);
+            } else {
+                unlink($entryPath);
+            }
+        }
+
+        rmdir($directory);
     }
 
     /**

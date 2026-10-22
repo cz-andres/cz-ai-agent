@@ -72,9 +72,9 @@ try {
         'foreign_keys' => count($currentSchema['foreign_keys'] ?? []),
     ]);
 
-    $store = new KnowledgeBaseStore(
-        dirname(__DIR__) . '/knowledge/snapshot.json',
-    );
+    $knowledgePath = getenv('KNOWLEDGE_LIBRARY_PATH')
+        ?: dirname(__DIR__) . '/knowledge';
+    $store = new KnowledgeBaseStore($knowledgePath);
     $loader = new KnowledgeBaseLoader($store);
     $stage = 'knowledge_base_validation';
     $knowledge = $loader->load($currentSchema);

@@ -16,54 +16,84 @@ final class KnowledgeBaseStoreTest extends TestCase
         $this->directory = sys_get_temp_dir()
             . '/cz-ai-agent-knowledge-'
             . bin2hex(random_bytes(8));
-
-        mkdir($this->directory, 0775, true);
     }
 
     protected function tearDown(): void
     {
-        foreach (glob($this->directory . '/*') ?: [] as $file) {
-            if (is_file($file)) {
-                unlink($file);
-            }
-        }
-
-        foreach (glob($this->directory . '/.*') ?: [] as $file) {
-            if (is_file($file)) {
-                unlink($file);
-            }
-        }
-
         if (is_dir($this->directory)) {
-            rmdir($this->directory);
+            $this->removeDirectory($this->directory);
         }
     }
 
-    public function testSavesAndLoadsSnapshot(): void
+    public function testSavesAndLoadsKnowledgeLibrary(): void
     {
-        $store = new KnowledgeBaseStore(
-            $this->directory . '/snapshot.json',
-        );
-
+        $store = new KnowledgeBaseStore($this->directory);
         $snapshot = $this->validSnapshot();
+        $snapshot['relationships']['declared_relationships'] = [
+            [
+                'constraint_name' => 'fk_source_target',
+                'source_table' => 'source_records',
+                'source_column' => 'target_id',
+                'target_schema' => 'test_database',
+                'target_table' => 'target_records',
+                'target_column' => 'id',
+                'status' => 'declared_foreign_key',
+                'confidence' => [
+                    'assessment_status' => 'declared_foreign_key',
+                    'data_profiled' => true,
+                ],
+                'profiling' => [
+                    'status' => 'profiled',
+                    'sampled_value_count' => 10,
+                    'matched_value_count' => 10,
+                    'match_rate' => 1.0,
+                ],
+                'diagnostics' => ['classification' => 'consistent'],
+            ],
+        ];
 
         $store->save($snapshot);
 
         self::assertSame($snapshot, $store->load());
+        self::assertFileExists($this->directory . '/current.json');
+        self::assertFileExists(
+            $this->directory . '/builds/'
+            . $this->currentBuildId()
+            . '/catalog/tables.json',
+        );
+        self::assertFileExists(
+            $this->directory . '/builds/'
+            . $this->currentBuildId()
+            . '/relationships/declared.json',
+        );
+        self::assertFileExists(
+            $this->directory . '/builds/'
+            . $this->currentBuildId()
+            . '/profiling/declared.json',
+        );
+        $relationshipData = file_get_contents(
+            $this->directory . '/builds/' . $this->currentBuildId()
+            . '/relationships/declared.json',
+        );
+        $profilingData = file_get_contents(
+            $this->directory . '/builds/' . $this->currentBuildId()
+            . '/profiling/declared.json',
+        );
+        self::assertIsString($relationshipData);
+        self::assertIsString($profilingData);
+        self::assertStringNotContainsString('profiling', $relationshipData);
+        self::assertStringContainsString('match_rate', $profilingData);
     }
 
     public function testRejectsUnsupportedVersion(): void
     {
-        $store = new KnowledgeBaseStore(
-            $this->directory . '/snapshot.json',
-        );
-
+        $store = new KnowledgeBaseStore($this->directory);
         $snapshot = $this->validSnapshot();
         $snapshot['format_version'] = 99;
 
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage(
-            'Unsupported knowledge snapshot format version.',
+            'Unsupported knowledge library format version.',
         );
 
         $store->save($snapshot);
@@ -71,16 +101,13 @@ final class KnowledgeBaseStoreTest extends TestCase
 
     public function testRejectsMissingRequiredFields(): void
     {
-        $store = new KnowledgeBaseStore(
-            $this->directory . '/snapshot.json',
-        );
-
+        $store = new KnowledgeBaseStore($this->directory);
         $snapshot = $this->validSnapshot();
         unset($snapshot['relationships']);
 
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage(
-            'Knowledge snapshot is missing required field: relationships',
+            'Knowledge library is missing required field: relationships',
         );
 
         $store->save($snapshot);
@@ -88,28 +115,62 @@ final class KnowledgeBaseStoreTest extends TestCase
 
     public function testRejectsMalformedJson(): void
     {
-        $path = $this->directory . '/snapshot.json';
-        file_put_contents($path, '{invalid');
+        mkdir($this->directory, 0775, true);
+        file_put_contents($this->directory . '/current.json', '{invalid');
 
-        $store = new KnowledgeBaseStore($path);
+        $store = new KnowledgeBaseStore($this->directory);
 
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage(
-            'Knowledge snapshot contains invalid JSON.',
+            'Knowledge active knowledge pointer contains invalid JSON.',
         );
 
         $store->load();
     }
 
-    public function testRejectsMissingSnapshot(): void
+    public function testRejectsMissingActiveLibraryBuild(): void
     {
-        $store = new KnowledgeBaseStore(
-            $this->directory . '/missing.json',
-        );
+        $store = new KnowledgeBaseStore($this->directory . '/missing');
 
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage(
-            'Knowledge snapshot does not exist.',
+            'Knowledge library has no active build.',
+        );
+
+        $store->load();
+    }
+
+    public function testDoesNotTreatLegacySnapshotAsActiveBuild(): void
+    {
+        mkdir($this->directory, 0775, true);
+        file_put_contents(
+            $this->directory . '/snapshot.json',
+            json_encode($this->validSnapshot(), JSON_THROW_ON_ERROR),
+        );
+
+        $store = new KnowledgeBaseStore($this->directory);
+
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage(
+            'Knowledge library has no active build.',
+        );
+
+        $store->load();
+    }
+
+    public function testRejectsChangedArtifact(): void
+    {
+        $store = new KnowledgeBaseStore($this->directory);
+        $store->save($this->validSnapshot());
+
+        $tablesPath = $this->directory . '/builds/'
+            . $this->currentBuildId()
+            . '/catalog/tables.json';
+        file_put_contents($tablesPath, '[]');
+
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage(
+            'Knowledge artifact checksum does not match: catalog/tables.json',
         );
 
         $store->load();
@@ -121,7 +182,7 @@ final class KnowledgeBaseStoreTest extends TestCase
     private function validSnapshot(): array
     {
         return [
-            'format_version' => 1,
+            'format_version' => 2,
             'generated_at' => '2026-10-21T00:00:00+00:00',
             'source' => [
                 'database' => 'test_database',
@@ -148,5 +209,36 @@ final class KnowledgeBaseStoreTest extends TestCase
                 'inferred_candidates' => [],
             ],
         ];
+    }
+
+    private function currentBuildId(): string
+    {
+        $pointer = json_decode(
+            (string) file_get_contents($this->directory . '/current.json'),
+            true,
+            512,
+            JSON_THROW_ON_ERROR,
+        );
+
+        return $pointer['build_id'];
+    }
+
+    private function removeDirectory(string $directory): void
+    {
+        foreach (new \DirectoryIterator($directory) as $entry) {
+            if ($entry->isDot()) {
+                continue;
+            }
+
+            $entryPath = $entry->getPathname();
+
+            if ($entry->isDir() && !$entry->isLink()) {
+                $this->removeDirectory($entryPath);
+            } else {
+                unlink($entryPath);
+            }
+        }
+
+        rmdir($directory);
     }
 }

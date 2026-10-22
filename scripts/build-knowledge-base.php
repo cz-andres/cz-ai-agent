@@ -41,15 +41,16 @@ $snapshot = $builder->build(
     maxInferredToProfile: 20,
 );
 
-$store = new KnowledgeBaseStore(
-    dirname(__DIR__) . '/knowledge/snapshot.json',
-);
+$knowledgePath = getenv('KNOWLEDGE_LIBRARY_PATH')
+    ?: dirname(__DIR__) . '/knowledge';
+$store = new KnowledgeBaseStore($knowledgePath);
 
-$store->save($snapshot);
+$buildId = $store->save($snapshot);
 
 echo json_encode([
         'status' => 'saved',
-        'path' => 'knowledge/snapshot.json',
+        'path' => $knowledgePath . '/current.json',
+        'build_id' => $buildId,
         'generated_at' => $snapshot['generated_at'],
         'schema_fingerprint' =>
             $snapshot['source']['schema_fingerprint'],

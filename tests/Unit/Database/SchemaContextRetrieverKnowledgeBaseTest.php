@@ -10,34 +10,30 @@ use PHPUnit\Framework\TestCase;
 
 final class SchemaContextRetrieverKnowledgeBaseTest extends TestCase
 {
-    private string $snapshotPath;
+    private string $libraryPath;
 
     protected function setUp(): void
     {
-        $path = tempnam(sys_get_temp_dir(), 'cz-ai-knowledge-');
+        $this->libraryPath = sys_get_temp_dir()
+            . '/cz-ai-knowledge-'
+            . bin2hex(random_bytes(8));
 
-        if ($path === false) {
-            self::fail('Could not create temporary snapshot path.');
-        }
-
-        $this->snapshotPath = $path;
-
-        (new KnowledgeBaseStore($this->snapshotPath))->save(
+        (new KnowledgeBaseStore($this->libraryPath))->save(
             $this->snapshot()
         );
     }
 
     protected function tearDown(): void
     {
-        if (is_file($this->snapshotPath)) {
-            unlink($this->snapshotPath);
+        if (is_dir($this->libraryPath)) {
+            $this->removeDirectory($this->libraryPath);
         }
     }
 
     public function testItRetrievesRelevantInferredRelationshipsFromSnapshot(): void
     {
         $loader = new KnowledgeBaseLoader(
-            new KnowledgeBaseStore($this->snapshotPath)
+            new KnowledgeBaseStore($this->libraryPath)
         );
 
         $retriever = new SchemaContextRetriever(
@@ -108,7 +104,7 @@ final class SchemaContextRetrieverKnowledgeBaseTest extends TestCase
         ];
 
         return [
-            'format_version' => 1,
+            'format_version' => 2,
             'generated_at' => '2026-01-01T00:00:00+00:00',
             'source' => [
                 'database' => 'test_database',
@@ -143,5 +139,24 @@ final class SchemaContextRetrieverKnowledgeBaseTest extends TestCase
                 ],
             ],
         ];
+    }
+
+    private function removeDirectory(string $directory): void
+    {
+        foreach (new \DirectoryIterator($directory) as $entry) {
+            if ($entry->isDot()) {
+                continue;
+            }
+
+            $entryPath = $entry->getPathname();
+
+            if ($entry->isDir() && !$entry->isLink()) {
+                $this->removeDirectory($entryPath);
+            } else {
+                unlink($entryPath);
+            }
+        }
+
+        rmdir($directory);
     }
 }

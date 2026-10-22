@@ -7,7 +7,7 @@ summaries as well as individual record lookups.
 
 ## How question answering works
 
-1. The application verifies the saved knowledge snapshot against the live
+1. The application verifies the active knowledge library against the live
    database schema.
 2. Schema retrieval ranks relevant tables and columns, prioritizes exact field
    names, adds insurance terminology from `InsuranceSchemaGlossary`, and
@@ -42,6 +42,23 @@ Database code is grouped by responsibility under `src/Database/`:
 - `Knowledge/` builds, fingerprints, loads, and stores schema snapshots.
 - `Profiling/` analyzes schema and relationship candidates.
 - `Query/` validates, builds, compiles, and executes read-only query plans.
+
+## Database knowledge library
+
+Build the database knowledge library with:
+
+```sh
+docker compose exec app php scripts/build-knowledge-base.php
+```
+
+The builder writes versioned, immutable builds under `knowledge/builds/` and
+switches `knowledge/current.json` only after all files are written. The active
+build has a manifest and separate `catalog/`, `relationships/`, and `profiling/`
+artifacts; the manifest records checksums so incomplete or mixed builds are
+rejected. Existing `knowledge/snapshot.json` files are not imported or used.
+
+Set `KNOWLEDGE_LIBRARY_PATH` to build or read a library at another path. This
+can be useful for isolated builds without replacing the active project library.
 
 ## Development
 

@@ -10,20 +10,19 @@ use PHPUnit\Framework\TestCase;
 
 final class KnowledgeBaseLoaderTest extends TestCase
 {
-    private string $path;
+    private string $libraryPath;
 
     protected function setUp(): void
     {
-        $this->path = sys_get_temp_dir()
+        $this->libraryPath = sys_get_temp_dir()
             . '/cz-ai-agent-loader-'
-            . bin2hex(random_bytes(8))
-            . '.json';
+            . bin2hex(random_bytes(8));
     }
 
     protected function tearDown(): void
     {
-        if (is_file($this->path)) {
-            unlink($this->path);
+        if (is_dir($this->libraryPath)) {
+            $this->removeDirectory($this->libraryPath);
         }
     }
 
@@ -36,7 +35,7 @@ final class KnowledgeBaseLoaderTest extends TestCase
             'foreign_keys' => [],
         ];
 
-        $store = new KnowledgeBaseStore($this->path);
+        $store = new KnowledgeBaseStore($this->libraryPath);
         $fingerprint = new SchemaFingerprint();
         $snapshot = $this->snapshot($schema, $fingerprint);
         $store->save($snapshot);
@@ -61,7 +60,7 @@ final class KnowledgeBaseLoaderTest extends TestCase
         $changed = $original;
         $changed['tables'][] = ['name' => 'table_b'];
 
-        $store = new KnowledgeBaseStore($this->path);
+        $store = new KnowledgeBaseStore($this->libraryPath);
         $fingerprint = new SchemaFingerprint();
         $store->save($this->snapshot($original, $fingerprint));
 
@@ -82,7 +81,7 @@ final class KnowledgeBaseLoaderTest extends TestCase
             'foreign_keys' => [],
         ];
 
-        $store = new KnowledgeBaseStore($this->path);
+        $store = new KnowledgeBaseStore($this->libraryPath);
         $fingerprint = new SchemaFingerprint();
         $store->save($this->snapshot($schema, $fingerprint));
 
@@ -103,7 +102,7 @@ final class KnowledgeBaseLoaderTest extends TestCase
         SchemaFingerprint $fingerprint,
     ): array {
         return [
-            'format_version' => 1,
+            'format_version' => 2,
             'generated_at' => gmdate('c'),
             'source' => [
                 'database' => $schema['database'],
@@ -126,5 +125,24 @@ final class KnowledgeBaseLoaderTest extends TestCase
                 'inferred_candidates' => [],
             ],
         ];
+    }
+
+    private function removeDirectory(string $directory): void
+    {
+        foreach (new \DirectoryIterator($directory) as $entry) {
+            if ($entry->isDot()) {
+                continue;
+            }
+
+            $entryPath = $entry->getPathname();
+
+            if ($entry->isDir() && !$entry->isLink()) {
+                $this->removeDirectory($entryPath);
+            } else {
+                unlink($entryPath);
+            }
+        }
+
+        rmdir($directory);
     }
 }

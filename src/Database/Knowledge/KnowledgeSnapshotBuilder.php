@@ -33,7 +33,7 @@ final class KnowledgeSnapshotBuilder
         );
 
         return [
-            'format_version' => 1,
+            'format_version' => 2,
             'generated_at' => gmdate('c'),
             'source' => [
                 'database' => $schema['database'],

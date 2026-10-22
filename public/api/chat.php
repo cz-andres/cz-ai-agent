@@ -87,9 +87,9 @@ try {
         ),
     );
 
-    $knowledgeBaseStore = new KnowledgeBaseStore(
-        dirname(__DIR__, 2) . '/knowledge/snapshot.json',
-    );
+    $knowledgePath = getenv('KNOWLEDGE_LIBRARY_PATH')
+        ?: dirname(__DIR__, 2) . '/knowledge';
+    $knowledgeBaseStore = new KnowledgeBaseStore($knowledgePath);
     $knowledgeBaseLoader = new KnowledgeBaseLoader(
         $knowledgeBaseStore,
     );
