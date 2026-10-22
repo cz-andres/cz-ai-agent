@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace CzAiAgent\Tests\Unit\Database;
 
-use CzAiAgent\Database\KnowledgeBaseLoader;
-use CzAiAgent\Database\KnowledgeBaseStore;
-use CzAiAgent\Database\SchemaFingerprint;
+use CzAiAgent\Database\Knowledge\KnowledgeBaseLoader;
+use CzAiAgent\Database\Knowledge\KnowledgeBaseStore;
+use CzAiAgent\Database\Knowledge\SchemaFingerprint;
 use PHPUnit\Framework\TestCase;
 
 final class KnowledgeBaseLoaderTest extends TestCase

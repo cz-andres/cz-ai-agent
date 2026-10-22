@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 
-namespace CzAiAgent\Database;
+namespace CzAiAgent\Database\Query;
 
 use PDO;
 use RuntimeException;
@@ -11,11 +11,14 @@ use Throwable;
 final class ReadOnlyQueryExecutor
 {
     private const MAX_ROWS = 100;
+    private const MAX_ROW_BYTES = 262144;
+    private const MAX_RESULT_BYTES = 1048576;
 
     public function __construct(
         private readonly PDO $pdo,
         private readonly ReadOnlyQueryPlanCompiler $compiler = new ReadOnlyQueryPlanCompiler(),
-) {
+        private readonly QueryPlanValidator $validator = new QueryPlanValidator(),
+    ) {
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     }
@@ -40,16 +43,51 @@ final class ReadOnlyQueryExecutor
      */
     public function execute(array $plan, array $schema): array
     {
-        $compiled = $this->compiler->compile($plan, $schema);
+        try {
+            $this->validator->validate($plan, $schema);
+            $compiled = $this->compiler->compile($plan, $schema);
+        } catch (\InvalidArgumentException $exception) {
+            throw new RuntimeException(
+                'The proposed query plan failed validation.',
+                0,
+                $exception,
+        );
+        }
 
         try {
             $statement = $this->pdo->prepare($compiled['sql']);
             $statement->execute($compiled['parameters']);
 
-            $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-            if (count($rows) > self::MAX_ROWS) {
-                $rows = array_slice($rows, 0, self::MAX_ROWS);
+            $rows = [];
+            $resultBytes = 0;
+
+            while (($row = $statement->fetch(PDO::FETCH_ASSOC)) !== false) {
+                if (count($rows) >= self::MAX_ROWS) {
+                    break;
+                }
+
+                $encodedRow = json_encode(
+                    $row,
+                    JSON_THROW_ON_ERROR | JSON_INVALID_UTF8_SUBSTITUTE,
+                );
+
+                $rowBytes = strlen($encodedRow);
+
+                if ($rowBytes > self::MAX_ROW_BYTES) {
+                    throw new RuntimeException(
+                        'A query result row exceeds the permitted size.',
+                    );
+                }
+
+                if ($resultBytes + $rowBytes > self::MAX_RESULT_BYTES) {
+                    throw new RuntimeException(
+                        'The query result exceeds the permitted size.',
+                    );
+                }
+
+                $rows[] = $row;
+                $resultBytes += $rowBytes;
             }
 
             $tableNames = [];

@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace CzAiAgent\Tests\Database;
 
-use CzAiAgent\Database\DataProfilingAdapter;
-use CzAiAgent\Database\RelationshipProfilingService;
+use CzAiAgent\Database\Profiling\DataProfilingAdapter;
+use CzAiAgent\Database\Profiling\RelationshipProfilingService;
 use PHPUnit\Framework\TestCase;
 
 final class RelationshipProfilingServiceTest extends TestCase

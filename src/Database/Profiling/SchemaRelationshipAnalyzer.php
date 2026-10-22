@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace CzAiAgent\Database;
+namespace CzAiAgent\Database\Profiling;
 
 final class SchemaRelationshipAnalyzer
 {

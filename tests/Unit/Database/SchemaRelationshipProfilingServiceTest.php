@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace CzAiAgent\Tests\Database;
 
-use CzAiAgent\Database\DataProfilingAdapter;
-use CzAiAgent\Database\RelationshipProfilingService;
-use CzAiAgent\Database\SchemaRelationshipAnalyzer;
-use CzAiAgent\Database\SchemaRelationshipProfilingService;
+use CzAiAgent\Database\Profiling\DataProfilingAdapter;
+use CzAiAgent\Database\Profiling\RelationshipProfilingService;
+use CzAiAgent\Database\Profiling\SchemaRelationshipAnalyzer;
+use CzAiAgent\Database\Profiling\SchemaRelationshipProfilingService;
 use PHPUnit\Framework\TestCase;
 
 final class SchemaRelationshipProfilingServiceTest extends TestCase

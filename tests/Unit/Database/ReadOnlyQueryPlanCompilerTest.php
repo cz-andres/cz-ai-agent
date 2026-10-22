@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace CzAiAgent\Tests\Unit\Database;
 
-use CzAiAgent\Database\ReadOnlyQueryPlanCompiler;
+use CzAiAgent\Database\Query\ReadOnlyQueryPlanCompiler;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 

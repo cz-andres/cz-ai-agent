@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace CzAiAgent\Database;
+namespace CzAiAgent\Database\Discovery;
 
 use PDO;
 
@@ -50,6 +50,7 @@ final class MariaDbSchemaDiscoveryAdapter implements SchemaDiscoveryAdapter
             <<<'SQL'
             SELECT
                 CONSTRAINT_NAME AS name,
+                ORDINAL_POSITION AS ordinal_position,
                 TABLE_NAME AS source_table,
                 COLUMN_NAME AS source_column,
                 REFERENCED_TABLE_SCHEMA AS target_schema,

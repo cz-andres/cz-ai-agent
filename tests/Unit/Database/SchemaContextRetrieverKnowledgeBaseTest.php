@@ -3,14 +3,10 @@ declare(strict_types=1);
 
 namespace CzAiAgent\Tests\Unit\Database;
 
-use CzAiAgent\Database\KnowledgeBaseLoader;
-use CzAiAgent\Database\KnowledgeBaseStore;
-use CzAiAgent\Database\SchemaContextRetriever;
+use CzAiAgent\Database\Knowledge\KnowledgeBaseLoader;
+use CzAiAgent\Database\Knowledge\KnowledgeBaseStore;
+use CzAiAgent\Database\Context\SchemaContextRetriever;
 use PHPUnit\Framework\TestCase;
-use CzAiAgent\Agent\InsuranceAnalysisAgent;
-use CzAiAgent\Llm\LlmAdapter;
-use CzAiAgent\Llm\LlmRequest;
-use CzAiAgent\Llm\LlmResponse;
 
 final class SchemaContextRetrieverKnowledgeBaseTest extends TestCase
 {
@@ -68,49 +64,6 @@ final class SchemaContextRetrieverKnowledgeBaseTest extends TestCase
         self::assertSame(
             'target_records',
             $context['inferred_relationship_candidates'][0]['target_table']
-        );
-    }
-
-    public function testItPassesSchemaContextToTheAgentLlm(): void
-    {
-        $llm = new class implements LlmAdapter {
-            public ?LlmRequest $lastRequest = null;
-
-            public function generate(LlmRequest $request): LlmResponse
-            {
-                $this->lastRequest = $request;
-
-                return new LlmResponse(
-                    content: 'Test answer',
-                    provider: 'test',
-                    model: 'test-model',
-            );
-            }
-        };
-
-        $retriever = new SchemaContextRetriever(
-            knowledgeBaseLoader: new KnowledgeBaseLoader(
-                new KnowledgeBaseStore($this->snapshotPath)
-            ),
-    );
-
-        $agent = new InsuranceAnalysisAgent($llm, $retriever);
-
-        $response = $agent->answerQuestion('source target records');
-
-        self::assertSame('Test answer', $response->content);
-        self::assertNotNull($llm->lastRequest);
-        self::assertStringContainsString(
-            'Relevant database schema context',
-            $llm->lastRequest->systemPrompt
-        );
-        self::assertStringContainsString(
-            'inferred_relationship_candidates',
-            $llm->lastRequest->systemPrompt
-        );
-        self::assertStringContainsString(
-            'inferred_unverified',
-            $llm->lastRequest->systemPrompt
         );
     }
 

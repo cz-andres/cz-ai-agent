@@ -3,17 +3,21 @@ declare(strict_types=1);
 
 use CzAiAgent\Agent\DatabaseQuestionAgent;
 use CzAiAgent\Agent\EvidenceAnswerGenerator;
-use CzAiAgent\Agent\QueryPlanGenerator;
+use CzAiAgent\Agent\QueryIntentGenerator;
+use CzAiAgent\Agent\ClarificationRequiredException;
 use CzAiAgent\Config\DatabaseConfig;
 use CzAiAgent\Config\LlmConfig;
-use CzAiAgent\Database\KnowledgeBaseLoader;
-use CzAiAgent\Database\KnowledgeBaseStore;
-use CzAiAgent\Database\MariaDbSchemaDiscoveryAdapter;
-use CzAiAgent\Database\ReadOnlyDatabaseConnectionFactory;
-use CzAiAgent\Database\ReadOnlyQueryExecutor;
-use CzAiAgent\Database\SchemaContextRetriever;
-use CzAiAgent\Database\SchemaDiscoveryService;
+use CzAiAgent\Database\Knowledge\KnowledgeBaseLoader;
+use CzAiAgent\Database\Knowledge\KnowledgeBaseStore;
+use CzAiAgent\Database\Discovery\MariaDbSchemaDiscoveryAdapter;
+use CzAiAgent\Database\Connection\ReadOnlyDatabaseConnectionFactory;
+use CzAiAgent\Database\Query\ReadOnlyQueryExecutor;
+use CzAiAgent\Database\Query\QueryIntentPlanBuilder;
+use CzAiAgent\Database\Context\SchemaContextRetriever;
+use CzAiAgent\Database\Discovery\SchemaDiscoveryService;
 use CzAiAgent\Llm\LlmAdapterFactory;
+use CzAiAgent\Agent\InsufficientSchemaException;
+use CzAiAgent\Agent\StaleSchemaException;
 
 require __DIR__ . '/../../vendor/autoload.php';
 
@@ -25,6 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(['error' => 'Only POST requests are allowed.']);
     exit;
 }
+
+$requestId = bin2hex(random_bytes(8));
+$stage = 'request_validation';
 
 try {
     $rawBody = file_get_contents('php://input');
@@ -66,6 +73,7 @@ try {
         );
     }
 
+    $stage = 'service_initialization';
     $config = LlmConfig::fromEnvironment();
     $llm = (new LlmAdapterFactory($config))->create();
 
@@ -94,29 +102,57 @@ try {
         schemaContextRetriever: $schemaContextRetriever,
         schemaDiscovery: $schemaDiscovery,
         knowledgeBaseLoader: $knowledgeBaseLoader,
-        queryPlanGenerator: new QueryPlanGenerator($llm),
+        queryIntentGenerator: new QueryIntentGenerator($llm),
+        queryIntentPlanBuilder: new QueryIntentPlanBuilder(),
         queryExecutor: new ReadOnlyQueryExecutor($pdo),
         answerGenerator: new EvidenceAnswerGenerator($llm),
     );
 
+    $stage = 'database_question_agent';
     $response = $agent->ask($question);
+    $response['request_id'] = $requestId;
 
     echo json_encode($response, JSON_THROW_ON_ERROR);
-} catch (InvalidArgumentException $exception) {
-    http_response_code(400);
-    echo json_encode([
-        'error' => $exception->getMessage(),
-    ]);
 } catch (JsonException $exception) {
     http_response_code(400);
     echo json_encode([
         'error' => 'The request body contains invalid JSON.',
+        'request_id' => $requestId,
+    ]);
+} catch (InvalidArgumentException $exception) {
+    http_response_code(400);
+    echo json_encode([
+        'error' => $exception->getMessage(),
+        'request_id' => $requestId,
+    ]);
+} catch (InsufficientSchemaException $exception) {
+    http_response_code(422);
+    echo json_encode([
+        'error' => $exception->getMessage(),
+        'request_id' => $requestId,
+    ]);
+} catch (ClarificationRequiredException $exception) {
+    http_response_code(422);
+    echo json_encode([
+        'error' => $exception->getMessage(),
+        'request_id' => $requestId,
+    ]);
+} catch (StaleSchemaException $exception) {
+    http_response_code(409);
+    echo json_encode([
+        'error' => $exception->getMessage(),
+        'request_id' => $requestId,
     ]);
 } catch (Throwable $exception) {
-    error_log((string) $exception);
-
+    error_log(json_encode([
+        'event' => 'database_chat_request_failed',
+        'request_id' => $requestId,
+        'stage' => $stage,
+        'exception_type' => get_class($exception),
+    ], JSON_THROW_ON_ERROR));
     http_response_code(502);
     echo json_encode([
-        'error' => 'The request could not be completed. Check the application logs.',
+        'error' => 'The request could not be completed. Share the reference ID with an administrator.',
+        'request_id' => $requestId,
     ]);
 }

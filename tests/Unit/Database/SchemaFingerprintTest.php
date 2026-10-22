@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace CzAiAgent\Tests\Unit\Database;
 
-use CzAiAgent\Database\SchemaFingerprint;
+use CzAiAgent\Database\Knowledge\SchemaFingerprint;
 use PHPUnit\Framework\TestCase;
 
 final class SchemaFingerprintTest extends TestCase

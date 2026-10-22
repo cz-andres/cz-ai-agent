@@ -4,8 +4,8 @@ declare(strict_types=1);
 require dirname(__DIR__) . '/vendor/autoload.php';
 
 use CzAiAgent\Config\DatabaseConfig;
-use CzAiAgent\Database\MariaDbSchemaDiscoveryAdapter;
-use CzAiAgent\Database\SchemaDiscoveryService;
+use CzAiAgent\Database\Discovery\MariaDbSchemaDiscoveryAdapter;
+use CzAiAgent\Database\Discovery\SchemaDiscoveryService;
 
 $config = DatabaseConfig::fromEnvironment();
 

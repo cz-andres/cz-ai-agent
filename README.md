@@ -1,24 +1,58 @@
-
 # CZ AI Agent
 
-An AI agent for database discovery, insurance policy analysis,
-and explaining patterns in policy data.
+An AI agent for discovering an insurance database's structure, reasoning over
+declared relationships, and answering policy questions with read-only query
+evidence. The project is designed to support policy comparisons and grouped
+summaries as well as individual record lookups.
 
-## Technology
+## How question answering works
 
-- PHP 8.3+
-- Composer
-- Docker
-- Ollama (planned)
-- MySQL (planned)
+1. The application verifies the saved knowledge snapshot against the live
+   database schema.
+2. Schema retrieval ranks relevant tables and columns, prioritizes exact field
+   names, adds insurance terminology from `InsuranceSchemaGlossary`, and
+   includes declared relationship paths and qualified field candidates.
+3. The language model returns constrained intent: fields to select, filters,
+   optional grouping/aggregations, and sorting. It does not write SQL or joins.
+4. Application code maps qualified candidates to tables, creates aliases, and
+   builds the shortest unambiguous join path using declared foreign keys only.
+   Ambiguous paths are rejected instead of guessed.
+5. The query compiler validates identifiers, joins, limits, parameters, and
+   result-size budgets before the read-only executor runs the query.
+6. The answer generator summarizes only the returned database evidence. The
+   response includes retrieval confidence and per-stage timings to make
+   retrieval quality and live-schema validation cost measurable.
 
-## Project status
+Questions asking for the latest or last record must sort first by a supported
+date or sequence field in descending order. Identifier values are preserved
+as strings so leading zeroes are not discarded; ambiguous references require
+clarification rather than a guessed filter.
 
-Initial project foundation.
+Inferred relationships remain unverified and are not used to construct joins.
+Insurance terms and synonyms are maintained in
+`src/Database/Context/InsuranceSchemaGlossary.php`; add domain-specific
+mappings there only when they are supported by the database and business
+definitions.
+
+Database code is grouped by responsibility under `src/Database/`:
+
+- `Connection/` creates database connections.
+- `Context/` retrieves relevant schema context and maps insurance terminology.
+- `Discovery/` reads and represents the live schema.
+- `Knowledge/` builds, fingerprints, loads, and stores schema snapshots.
+- `Profiling/` analyzes schema and relationship candidates.
+- `Query/` validates, builds, compiles, and executes read-only query plans.
 
 ## Development
 
-The application is designed to run in Docker.
-See the project documentation for setup instructions.
+The application and test suite run in Docker. Run the unit suite with:
 
+```sh
+docker compose exec app ./vendor/bin/phpunit
+```
 
+The CLI smoke test accepts a natural-language database question:
+
+```sh
+docker compose exec app php scripts/smoke-test.php "Show the base premium for a policy period"
+```

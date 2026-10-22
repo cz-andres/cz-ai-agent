@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace CzAiAgent\Tests\Database;
 
-use CzAiAgent\Database\SchemaDiscoveryAdapter;
-use CzAiAgent\Database\SchemaDiscoveryService;
+use CzAiAgent\Database\Discovery\SchemaDiscoveryAdapter;
+use CzAiAgent\Database\Discovery\SchemaDiscoveryService;
 use PHPUnit\Framework\TestCase;
 
 final class SchemaDiscoveryServiceTest extends TestCase

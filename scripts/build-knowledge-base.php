@@ -2,35 +2,21 @@
 declare(strict_types=1);
 
 use CzAiAgent\Config\DatabaseConfig;
-use CzAiAgent\Database\KnowledgeBaseStore;
-use CzAiAgent\Database\KnowledgeSnapshotBuilder;
-use CzAiAgent\Database\MariaDbDataProfilingAdapter;
-use CzAiAgent\Database\MariaDbSchemaDiscoveryAdapter;
-use CzAiAgent\Database\RelationshipProfilingService;
-use CzAiAgent\Database\SchemaDiscoveryService;
-use CzAiAgent\Database\SchemaFingerprint;
-use CzAiAgent\Database\SchemaRelationshipAnalyzer;
-use CzAiAgent\Database\SchemaRelationshipProfilingService;
+use CzAiAgent\Database\Knowledge\KnowledgeBaseStore;
+use CzAiAgent\Database\Knowledge\KnowledgeSnapshotBuilder;
+use CzAiAgent\Database\Profiling\MariaDbDataProfilingAdapter;
+use CzAiAgent\Database\Discovery\MariaDbSchemaDiscoveryAdapter;
+use CzAiAgent\Database\Connection\ReadOnlyDatabaseConnectionFactory;
+use CzAiAgent\Database\Profiling\RelationshipProfilingService;
+use CzAiAgent\Database\Discovery\SchemaDiscoveryService;
+use CzAiAgent\Database\Knowledge\SchemaFingerprint;
+use CzAiAgent\Database\Profiling\SchemaRelationshipAnalyzer;
+use CzAiAgent\Database\Profiling\SchemaRelationshipProfilingService;
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 
 $config = DatabaseConfig::fromEnvironment();
-
-$pdo = new PDO(
-    sprintf(
-        'mysql:host=%s;port=%d;dbname=%s;charset=utf8mb4',
-        $config->host,
-        $config->port,
-        $config->database,
-    ),
-    $config->username,
-    $config->password,
-    [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_EMULATE_PREPARES => false,
-    ],
-);
+$pdo = ReadOnlyDatabaseConnectionFactory::connect($config);
 
 $discovery = new SchemaDiscoveryService(
     new MariaDbSchemaDiscoveryAdapter($pdo, $config->database),

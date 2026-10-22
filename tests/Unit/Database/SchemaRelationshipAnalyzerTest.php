@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace CzAiAgent\Tests\Database;
 
-use CzAiAgent\Database\SchemaRelationshipAnalyzer;
+use CzAiAgent\Database\Profiling\SchemaRelationshipAnalyzer;
 use PHPUnit\Framework\TestCase;
 
 final class SchemaRelationshipAnalyzerTest extends TestCase

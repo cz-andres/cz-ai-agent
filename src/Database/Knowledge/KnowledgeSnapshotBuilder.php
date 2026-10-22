@@ -1,7 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace CzAiAgent\Database;
+namespace CzAiAgent\Database\Knowledge;
+
+use CzAiAgent\Database\Discovery\SchemaDiscoveryService;
+use CzAiAgent\Database\Profiling\SchemaRelationshipProfilingService;
 
 final class KnowledgeSnapshotBuilder
 {

@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace CzAiAgent\Tests\Database;
 
-use CzAiAgent\Database\MariaDbDataProfilingAdapter;
+use CzAiAgent\Database\Profiling\MariaDbDataProfilingAdapter;
 use InvalidArgumentException;
 use PDO;
 use PHPUnit\Framework\TestCase;

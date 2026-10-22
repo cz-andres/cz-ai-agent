@@ -232,9 +232,8 @@ declare(strict_types=1);
         <div class="welcome" id="welcome">
             <h1>What would you like to explore?</h1>
             <p>
-                Ask a question to get started. The assistant currently
-                uses a local AI model and does not yet have access to
-                your insurance database.
+                Ask questions about policies, premiums, periods, and patterns.
+                Answers are grounded in the connected insurance database.
             </p>
         </div>
     </section>
@@ -351,15 +350,31 @@ declare(strict_types=1);
             const data = await response.json();
 
             if (!response.ok) {
+                const reference = data.request_id
+                    ? ` (Reference: ${data.request_id})`
+                    : '';
                 throw new Error(
-                    data.error || 'The request could not be completed.'
+                    `${data.error || 'The request could not be completed.'}${reference}`
                 );
             }
+
+            const evidence = data.evidence;
+            const evidenceSummary = evidence
+                && Array.isArray(evidence.tables)
+                && Number.isInteger(evidence.returned_rows)
+                ? `Database: ${evidence.tables.join(', ')} · ${evidence.returned_rows} row${evidence.returned_rows === 1 ? '' : 's'}`
+                : 'Database evidence metadata was not returned.';
+            const diagnostics = data.diagnostics;
+            const diagnosticsSummary = diagnostics
+                && ['high', 'medium', 'low'].includes(diagnostics.retrieval_confidence)
+                && Number.isFinite(diagnostics.timings_ms?.total)
+                ? `Schema match: ${diagnostics.retrieval_confidence} · ${diagnostics.timings_ms.total} ms`
+                : 'Diagnostics unavailable.';
 
             assistantMessage = addMessage(
                 'assistant',
                 data.answer,
-                `Provider: ${data.provider} · Model: ${data.model}`
+                `Provider: ${data.provider} · Model: ${data.model} · ${evidenceSummary} · ${diagnosticsSummary}`
             );
 
             conversationHistory.push(
@@ -395,9 +410,8 @@ declare(strict_types=1);
         welcomeMessage.className = 'welcome';
         welcomeMessage.innerHTML =
             '<h1>What would you like to explore?</h1>' +
-            '<p>Ask a question to get started. The assistant currently ' +
-            'uses a local AI model and does not yet have access to ' +
-            'your insurance database.</p>';
+            '<p>Ask questions about policies, premiums, periods, and patterns. ' +
+            'Answers are grounded in the connected insurance database.</p>';
 
         messages.append(welcomeMessage);
         questionInput.value = '';

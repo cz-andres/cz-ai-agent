@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace CzAiAgent\Database;
+namespace CzAiAgent\Database\Query;
 
 use InvalidArgumentException;
 
@@ -10,6 +10,7 @@ final class ReadOnlyQueryPlanCompiler
     private const MAX_LIMIT = 100;
     private const MAX_SELECT_COLUMNS = 30;
     private const MAX_JOINS = 8;
+    private const MAX_JOIN_CONDITIONS = 16;
     private const MAX_FILTERS = 30;
     private const MAX_ORDER_COLUMNS = 10;
 
@@ -25,7 +26,7 @@ final class ReadOnlyQueryPlanCompiler
     public function compile(array $plan, array $schema): array
     {
         $this->assertKeys($plan, [
-            'select', 'from', 'joins', 'where', 'order_by', 'limit',
+            'select', 'from', 'joins', 'where', 'order_by', 'group_by', 'limit',
         ]);
 
         $tables = $this->indexTables($schema);
@@ -96,18 +97,26 @@ final class ReadOnlyQueryPlanCompiler
                 throw new InvalidArgumentException('Each selected column must be an object.');
             }
 
-            $this->assertKeys($item, ['table', 'column', 'alias']);
+            $this->assertKeys($item, ['table', 'column', 'alias', 'aggregate']);
 
             $reference = $this->validateColumnReference(
                 $item,
                 $aliases,
                 $columns,
-                ['alias']
+                ['alias', 'aggregate']
             );
 
             $part = $this->quoteIdentifier($reference['alias'])
                 . '.'
                 . $this->quoteIdentifier($reference['column']);
+
+            if (isset($item['aggregate'])) {
+                $aggregate = $item['aggregate'];
+                if (!in_array($aggregate, ['COUNT', 'SUM', 'AVG', 'MIN', 'MAX'], true)) {
+                    throw new InvalidArgumentException('The select aggregate is not supported.');
+                }
+                $part = $aggregate . '(' . $part . ')';
+            }
 
             if (isset($item['alias'])) {
                 $outputAlias = $this->identifier($item['alias']);
@@ -128,9 +137,13 @@ final class ReadOnlyQueryPlanCompiler
                 !is_array($conditions)
                 || !array_is_list($conditions)
                 || $conditions === []
-                || count($conditions) > 10
+                || count($conditions) > self::MAX_JOIN_CONDITIONS
             ) {
-                throw new InvalidArgumentException('Each join requires 1 to 10 conditions.');
+                throw new InvalidArgumentException(
+                    'Each join requires 1 to '
+                    . self::MAX_JOIN_CONDITIONS
+                    . ' conditions.'
+                );
             }
 
             $conditionParts = [];
@@ -276,6 +289,67 @@ final class ReadOnlyQueryPlanCompiler
                 . ' ' . $direction;
         }
 
+        $groupBy = $plan['group_by'] ?? [];
+        if (
+            !is_array($groupBy)
+            || !array_is_list($groupBy)
+            || count($groupBy) > self::MAX_SELECT_COLUMNS
+        ) {
+            throw new InvalidArgumentException('The group_by list is invalid or exceeds the limit.');
+        }
+
+        $groupParts = [];
+        foreach ($groupBy as $group) {
+            if (!is_array($group)) {
+                throw new InvalidArgumentException('Each group_by entry must be an object.');
+            }
+            $this->assertKeys($group, ['table', 'column']);
+            $reference = $this->validateColumnReference($group, $aliases, $columns);
+            $groupParts[] = $this->quoteIdentifier($reference['alias'])
+                . '.' . $this->quoteIdentifier($reference['column']);
+        }
+
+        $hasAggregate = false;
+        $groupReferenceSet = [];
+        foreach ($groupBy as $group) {
+            $groupReferenceSet[$group['table'] . '.' . $group['column']] = true;
+        }
+        foreach ($select as $item) {
+            $reference = $this->validateColumnReference(
+                $item,
+                $aliases,
+                $columns,
+                ['alias', 'aggregate'],
+            );
+            if (isset($item['aggregate'])) {
+                $hasAggregate = true;
+                continue;
+            }
+            if (
+                $groupBy !== []
+                && !isset($groupReferenceSet[$reference['alias'] . '.' . $reference['column']])
+            ) {
+                throw new InvalidArgumentException(
+                    'Every non-aggregated selected column must appear in group_by.'
+                );
+            }
+            if ($hasAggregate) {
+                throw new InvalidArgumentException(
+                    'Non-aggregated selected columns require group_by with aggregate queries.'
+                );
+            }
+        }
+
+        if ($hasAggregate && $groupBy === []) {
+            foreach ($select as $item) {
+                if (!isset($item['aggregate'])) {
+                    throw new InvalidArgumentException(
+                        'Aggregate queries with selected columns require group_by.'
+                    );
+                }
+            }
+        }
+
         $limit = $plan['limit'] ?? null;
 
         if (!is_int($limit) || $limit < 1 || $limit > self::MAX_LIMIT) {
@@ -295,6 +369,10 @@ final class ReadOnlyQueryPlanCompiler
 
         if ($whereParts !== []) {
             $sql .= ' WHERE ' . implode(' AND ', $whereParts);
+        }
+
+        if ($groupParts !== []) {
+            $sql .= ' GROUP BY ' . implode(', ', $groupParts);
         }
 
         if ($orderParts !== []) {

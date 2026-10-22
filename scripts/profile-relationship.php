@@ -2,12 +2,12 @@
 declare(strict_types=1);
 
 use CzAiAgent\Config\DatabaseConfig;
-use CzAiAgent\Database\MariaDbDataProfilingAdapter;
-use CzAiAgent\Database\MariaDbSchemaDiscoveryAdapter;
-use CzAiAgent\Database\RelationshipProfilingService;
-use CzAiAgent\Database\SchemaDiscoveryService;
-use CzAiAgent\Database\SchemaRelationshipAnalyzer;
-use CzAiAgent\Database\SchemaRelationshipProfilingService;
+use CzAiAgent\Database\Profiling\MariaDbDataProfilingAdapter;
+use CzAiAgent\Database\Discovery\MariaDbSchemaDiscoveryAdapter;
+use CzAiAgent\Database\Profiling\RelationshipProfilingService;
+use CzAiAgent\Database\Discovery\SchemaDiscoveryService;
+use CzAiAgent\Database\Profiling\SchemaRelationshipAnalyzer;
+use CzAiAgent\Database\Profiling\SchemaRelationshipProfilingService;
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 

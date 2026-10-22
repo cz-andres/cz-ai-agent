@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace CzAiAgent\Tests\Database;
 
-use CzAiAgent\Database\RelationshipProfilingDiagnostics;
+use CzAiAgent\Database\Profiling\RelationshipProfilingDiagnostics;
 use PHPUnit\Framework\TestCase;
 
 final class RelationshipProfilingDiagnosticsTest extends TestCase
