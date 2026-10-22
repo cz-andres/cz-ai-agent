@@ -1,0 +1,4484 @@
+[
+    {
+        "name": "fk_activity_log_category_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_activity_logs",
+        "source_column": "category_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_categories",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ar_values_ar",
+        "ordinal_position": 1,
+        "source_table": "cfg_authorised_rep_values",
+        "source_column": "authorised_rep_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_authorised_reps",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_bdm_targets_user_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_bdm_targets",
+        "source_column": "user_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_binder_guideline_capacity_binder_umr_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_binder_guideline_capacity",
+        "source_column": "binder_umr_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_binder_umrs",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_binder_guideline_capacity_guideline_group_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_binder_guideline_capacity",
+        "source_column": "guideline_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_guideline_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_binder_umrs_syndicate_binder_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_binder_umrs",
+        "source_column": "syndicate_binder_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicate_binders",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_branded_contents_brokerage_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_branded_wording_contents",
+        "source_column": "brokerage_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_brokerages",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_branded_contents_category_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_branded_wording_contents",
+        "source_column": "category_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_categories",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_branded_contents_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_branded_wording_contents",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_branded_contents_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_branded_wording_contents",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_branded_contents_syndicate_content_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_branded_wording_contents",
+        "source_column": "syndicate_wording_content_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicate_wording_contents",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_bwc_insurance_group_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_branded_wording_contents",
+        "source_column": "insurance_group_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_group_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_branded_versions_branded_content_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_branded_wording_versions",
+        "source_column": "branded_wording_content_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_branded_wording_contents",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_branded_versions_syndicate_content_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_branded_wording_versions",
+        "source_column": "syndicate_wording_content_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicate_wording_contents",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_brokerage_head_group_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_brokerages",
+        "source_column": "brokerage_head_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_brokerage_head_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_region_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_brokerages",
+        "source_column": "region_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_regions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_occ_bind_exc_brokerage_prod_type_imm_bind_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_brokerage_occupation_bind_exclusions",
+        "source_column": "brokerage_product_type_immediate_bind_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_brokerage_product_type_immediate_binds",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_occ_bind_exc_occupation_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_brokerage_occupation_bind_exclusions",
+        "source_column": "occupation_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_occupations",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_occupation_fees_brokerage_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_brokerage_occupation_fees",
+        "source_column": "brokerage_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_brokerages",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_occupation_fees_insurance_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_brokerage_occupation_fees",
+        "source_column": "insurance_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_occupation_fees_occupation_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_brokerage_occupation_fees",
+        "source_column": "occupation_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_occupations",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_product_type_immediate_bind_brokerage_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_brokerage_product_type_immediate_binds",
+        "source_column": "brokerage_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_brokerages",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_product_type_immediate_bind_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_brokerage_product_type_immediate_binds",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_product_type_values_brokerage_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_brokerage_product_type_values",
+        "source_column": "brokerage_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_brokerages",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_product_type_values_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_brokerage_product_type_values",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_category_values_category_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_category_values",
+        "source_column": "category_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_categories",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_content_blocks_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_content_blocks",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_content_blocks_form_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_content_blocks",
+        "source_column": "form_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_form_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_content_blocks_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_content_blocks",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_content_blocks_syndicate_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_content_blocks",
+        "source_column": "syndicate_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicates",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_content_blocks_version_user_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_content_block_versions",
+        "source_column": "user_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_content_block_versions_content_block",
+        "ordinal_position": 1,
+        "source_table": "cfg_content_block_versions",
+        "source_column": "content_block_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_content_blocks",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_cover_type_occupation_exclusions_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_cover_type_occupation_exclusions",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_cover_type_occupation_exclusions_occupation_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_cover_type_occupation_exclusions",
+        "source_column": "occupation_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_occupations",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_cover_type_sub_limits_insurance_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_cover_type_sub_limits",
+        "source_column": "insurance_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_cover_type_sub_limit_rates_cover_type_sub_limit_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_cover_type_sub_limit_rates",
+        "source_column": "cover_type_sub_limit_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_type_sub_limits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_cover_type_sub_limit_rates_policy_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_cover_type_sub_limit_rates",
+        "source_column": "policy_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policies",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_cover_type_values_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_cover_type_values",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_diamonds_period_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_diamonds",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_diamonds_policy_document_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_diamonds",
+        "source_column": "policy_document_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_documents",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_document_templates_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_document_templates",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_document_templates_syndicate_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_document_templates",
+        "source_column": "syndicate_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicates",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_document_template_version_document_template_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_document_template_versions",
+        "source_column": "document_template_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_document_templates",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_document_template_version_user_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_document_template_versions",
+        "source_column": "user_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ebf_email_batch_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_email_batch_failures",
+        "source_column": "email_batch_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_email_batches",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ebf_mail_queue_email_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_email_batch_failures",
+        "source_column": "mail_queue_email_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_mail_queue_emails",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_email_template_brokerage_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_email_templates",
+        "source_column": "brokerage_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_brokerages",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_email_template_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_email_templates",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "cfg_email_template_attachments_ibfk_1",
+        "ordinal_position": 1,
+        "source_table": "cfg_email_template_attachments",
+        "source_column": "email_template_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_email_templates",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_endorsement_additional_documents_endorsement_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_endorsement_additional_documents",
+        "source_column": "endorsement_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_endorsements",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_endorsements_endorsement_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_endorsement_contents",
+        "source_column": "endorsement_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_endorsements",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_endorsement_triggers_endorsement_trigger_group_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_endorsement_triggers",
+        "source_column": "endorsement_trigger_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_endorsement_trigger_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_endorsement_trigger_group_endorsement_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_endorsement_trigger_groups",
+        "source_column": "endorsement_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_endorsements",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_endorsement_type_links_endorsement_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_endorsement_type_links",
+        "source_column": "endorsement_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_endorsements",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_endorsement_type_links_endorsement_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_endorsement_type_links",
+        "source_column": "endorsement_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_endorsement_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_endorsement_values_endorsement_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_endorsement_values",
+        "source_column": "endorsement_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_endorsements",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_events_category_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_events",
+        "source_column": "category_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_categories",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_events_event_group_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_events",
+        "source_column": "event_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_event_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_event_endorsements_endorsement_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_event_endorsements",
+        "source_column": "endorsement_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_endorsements",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_event_endorsements_event_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_event_endorsements",
+        "source_column": "event_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_events",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_event_endorsements_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_event_endorsements",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_elp_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_excess_limit_pools",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_elp_excess_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_excess_limit_pools",
+        "source_column": "excess_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_excesses",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_elp_excess_limit_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_excess_limit_pools",
+        "source_column": "excess_limit_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_excess_limits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_etg_excess_basis_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_excess_trigger_groups",
+        "source_column": "excess_basis_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_excess_bases",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_etg_excess_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_excess_trigger_groups",
+        "source_column": "excess_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_excesses",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_etg_excess_limit_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_excess_trigger_groups",
+        "source_column": "excess_limit_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_excess_limits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_fire_service_levy_rates_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_fire_service_levy_rates",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_fire_service_levy_rates_region_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_fire_service_levy_rates",
+        "source_column": "region_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_regions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_form_profile_actions_profile_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_form_profile_actions",
+        "source_column": "form_profile_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_form_profiles",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_form_profile_triggers_profile_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_form_profile_triggers",
+        "source_column": "form_profile_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_form_profiles",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_types_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_types",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_types_parent_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_types",
+        "source_column": "parent_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_types_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_types",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_insurance_group_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_types",
+        "source_column": "insurance_group_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_group_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_syndicate_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_types",
+        "source_column": "syndicate_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicates",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_availability_insurance_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_availability",
+        "source_column": "insurance_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_bfsc_options_bfsc_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_bonafide_subcontractor_options",
+        "source_column": "bonafide_subcontractor_work_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_bonafide_subcontractor_work",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_bfsc_options_insurance_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_bonafide_subcontractor_options",
+        "source_column": "insurance_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_limits_limit_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_limits",
+        "source_column": "limit_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_limits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_itl_insurance_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_limits",
+        "source_column": "insurance_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_availability_occupation_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_limit_availability",
+        "source_column": "occupation_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_occupations",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_limit_availability_insurance_type_limit_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_limit_availability",
+        "source_column": "insurance_type_limit_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_type_limits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_limit_blurb_links_blurb_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_limit_blurb_links",
+        "source_column": "blurb_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_type_limit_blurbs",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_limit_blurb_links_insurance_type_limit_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_limit_blurb_links",
+        "source_column": "insurance_type_limit_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_type_limits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_itlb_bundled_insurance_type_limit_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_limit_bundles",
+        "source_column": "bundled_insurance_type_limit_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_type_limits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_itlb_bundled_sum_insured_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_limit_bundles",
+        "source_column": "bundled_sum_insured_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_categories",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_itlb_insurance_type_limit_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_limit_bundles",
+        "source_column": "insurance_type_limit_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_type_limits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_itlb_sum_insured_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_limit_bundles",
+        "source_column": "sum_insured_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_categories",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_limit_category_values_category_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_limit_category_values",
+        "source_column": "category_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_categories",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_limit_category_values_insurance_type_limit_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_limit_category_values",
+        "source_column": "insurance_type_limit_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_type_limits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_itlr_insurance_type_limit_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_limit_rates",
+        "source_column": "insurance_type_limit_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_type_limits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_limit_rates_insurance_type_limit_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_limit_values",
+        "source_column": "insurance_type_limit_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_type_limits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_limit_worker_rates_insurance_type_limit_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_limit_worker_rates",
+        "source_column": "insurance_type_limit_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_type_limits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_occupations_insurance_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_occupations",
+        "source_column": "insurance_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_occupations_liability_category",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_occupations",
+        "source_column": "liability_category",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_categories",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_occupations_occupation_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_occupations",
+        "source_column": "occupation_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_occupations",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_occupations_property_category",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_occupations",
+        "source_column": "property_category",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_categories",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_occupation_exclusions_insurance_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_occupation_exclusions",
+        "source_column": "insurance_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_occupation_exclusions_occupation_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_occupation_exclusions",
+        "source_column": "occupation_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_occupations",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_occupation_notices_cover_notice_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_occupation_notices",
+        "source_column": "cover_notice_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_notices",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_occupation_notices_insurance_type_occ_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_occupation_notices",
+        "source_column": "insurance_type_occupation_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_type_occupations",
+        "target_column": "id"
+    },
+    {
+        "name": "constrain_insurance_type_occupation_values",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_occupation_values",
+        "source_column": "insurance_type_occupation_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_type_occupations",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_range_rates_category_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_range_rates",
+        "source_column": "category_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_categories",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_range_rates_insurance_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_range_rates",
+        "source_column": "insurance_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_referral_tags_insurance_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_referral_tags",
+        "source_column": "insurance_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_syndicate_values_guideline_category_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_syndicate_values",
+        "source_column": "guideline_category_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_guideline_categories",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_syndicate_values_guideline_group_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_syndicate_values",
+        "source_column": "guideline_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_guideline_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_syndicate_values_insurance_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_syndicate_values",
+        "source_column": "insurance_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_syndicate_values_winbeat_underwriter_code_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_syndicate_values",
+        "source_column": "winbeat_underwriter_code_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_winbeat_underwriter_codes",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ins_type_syn_values_binder_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_syndicate_values",
+        "source_column": "syndicate_binder_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicate_binders",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ins_type_syn_values_ins_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_syndicate_values",
+        "source_column": "insurance_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_values_insurance_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_values",
+        "source_column": "insurance_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_worker_rates_insurance_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_insurance_type_worker_rates",
+        "source_column": "insurance_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_kpi_goals_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_kpi_goals",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_kpi_goals_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_kpi_goals",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_kpi_goal_kpi_goal_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_kpi_goal_products",
+        "source_column": "kpi_goal_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_kpi_goals",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_kpi_goal_kpi_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_kpi_goal_products",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_mail_queue_addresses_mail_queue_email_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_mail_queue_addresses",
+        "source_column": "mail_queue_email_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_mail_queue_emails",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_mail_queue_addresses_mail_queue_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_mail_queue_addresses",
+        "source_column": "mail_queue_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_mail_queue",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_mail_queue_large_data_mail_queue_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_mail_queue_large_data",
+        "source_column": "mail_queue_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_mail_queue",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_merchandise_product_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_merchandise_variants",
+        "source_column": "product_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_merchandise_products",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_merchandise_size_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_merchandise_variants",
+        "source_column": "size_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_merchandise_sizes",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_methods_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_methods",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_notification_event_recipients_notification_event_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_notification_event_recipients",
+        "source_column": "notification_event_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_notification_events",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_notification_event_recipients_notification_recipient_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_notification_event_recipients",
+        "source_column": "notification_recipient_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_notification_recipients",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_occupation_limit_values_insurance_type_limit_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_occupation_insurance_type_limit_values",
+        "source_column": "insurance_type_limit_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_type_limits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_occupation_limit_values_occupation_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_occupation_insurance_type_limit_values",
+        "source_column": "occupation_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_occupations",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_occupation_names_occupation_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_occupation_names",
+        "source_column": "occupation_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_occupations",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_occupation_rates_insurance_type_limit_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_occupation_rates",
+        "source_column": "insurance_type_limit_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_type_limits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_occupation_rates_occupation_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_occupation_rates",
+        "source_column": "occupation_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_occupations",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_occupation_rate_discounts_insurance_type_limit_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_occupation_rate_discounts",
+        "source_column": "insurance_type_limit_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_type_limits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_occupation_rate_discounts_occupation_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_occupation_rate_discounts",
+        "source_column": "occupation_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_occupations",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_occupation_rate_increases_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_occupation_rate_increases",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_occupation_rate_increases_occupation_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_occupation_rate_increases",
+        "source_column": "occupation_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_occupations",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_occupation_rate_increases_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_occupation_rate_increases",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_occupation_rate_minimum_premiums_occupation_rate_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_occupation_rate_minimum_premiums",
+        "source_column": "occupation_rate_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_occupation_rates",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_occupation_values_occupation_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_occupation_values",
+        "source_column": "occupation_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_occupations",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_occupation_worker_excess_rates_insurance_type_limit_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_occupation_worker_excess_rates",
+        "source_column": "insurance_type_limit_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_type_limits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_occupation_worker_excess_rates_occupation_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_occupation_worker_excess_rates",
+        "source_column": "occupation_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_occupations",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pdf_queue_large_data_pdf_queue_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_pdf_queue_large_data",
+        "source_column": "pdf_queue_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_pdf_queue",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_permissions_parent_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_permissions",
+        "source_column": "parent_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_permissions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_postcodes_region_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_postcodes",
+        "source_column": "region_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_regions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_types_access_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_types",
+        "source_column": "access_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_access_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_types_primary_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_types",
+        "source_column": "primary_cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_types_product_type_group",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_types",
+        "source_column": "product_type_group",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_categories",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_type_events_event_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_type_events",
+        "source_column": "event_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_events",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_type_events_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_type_events",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ptpc_policy_class_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_type_policy_classes",
+        "source_column": "policy_class_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_policy_classes",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ptpc_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_type_policy_classes",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ptpc_syndicate_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_type_policy_classes",
+        "source_column": "syndicate_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicates",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_type_prefixes_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_type_prefixes",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_type_question_answer_exclusions_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_type_question_answer_exclusions",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_type_question_answer_exclusions_question_answer_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_type_question_answer_exclusions",
+        "source_column": "question_answer_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_question_answers",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_type_question_answer_inclusions_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_type_question_answer_inclusions",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_type_question_answer_inclusions_question_answer_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_type_question_answer_inclusions",
+        "source_column": "question_answer_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_question_answers",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_type_regions_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_type_regions",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_type_regions_region_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_type_regions",
+        "source_column": "region_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_regions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_type_region_exclusions_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_type_region_exclusions",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_type_region_exclusions_region_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_type_region_exclusions",
+        "source_column": "region_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_regions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_type_rules_insurance_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_type_rule_values",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_type_schedule_format_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_type_schedule_formats",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_type_transaction_fees_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_type_transaction_fees",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_type_values_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_type_values",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insurance_type_variable_class_map_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_type_variable_class_maps",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_type_wordings_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_type_wordings",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_type_wordings_wording_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_type_wordings",
+        "source_column": "wording_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_wordings",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_type_wording_versions_product_type_wording_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_type_wording_versions",
+        "source_column": "product_type_wording_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_type_wordings",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_wordings_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_wordings",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_wordings_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_product_wordings",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_question_actions_question_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_question_actions",
+        "source_column": "question_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_questions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_question_answers_question_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_question_answers",
+        "source_column": "question_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_questions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_question_answer_actions_answer_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_question_answer_actions",
+        "source_column": "answer_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_question_answers",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_question_answer_categories_category_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_question_answer_categories",
+        "source_column": "category_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_categories",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_question_answer_categories_question_answer_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_question_answer_categories",
+        "source_column": "question_answer_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_question_answers",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_question_categories_category_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_question_categories",
+        "source_column": "category_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_categories",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_question_categories_question_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_question_categories",
+        "source_column": "question_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_questions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_question_extras_question_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_question_extras",
+        "source_column": "question_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_questions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_question_group_text_question_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_question_group_text",
+        "source_column": "question_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_question_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "cfg_question_internal_notes_ibfk_1",
+        "ordinal_position": 1,
+        "source_table": "cfg_question_internal_notes",
+        "source_column": "question_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_questions",
+        "target_column": "id"
+    },
+    {
+        "name": "cfg_question_internal_notes_ibfk_2",
+        "ordinal_position": 1,
+        "source_table": "cfg_question_internal_notes",
+        "source_column": "updated_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_question_text_question_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_question_text",
+        "source_column": "question_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_questions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_question_triggers_question_trigger_group_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_question_triggers",
+        "source_column": "question_trigger_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_question_trigger_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_qtg_question_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_question_trigger_groups",
+        "source_column": "question_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_questions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_rate_caps_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_rate_caps",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_rate_caps_policy_value_tier_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_rate_caps",
+        "source_column": "policy_value_tier_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_policy_value_tiers",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_rate_caps_syndicate_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_rate_caps",
+        "source_column": "syndicate_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicates",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_regions_country_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_regions",
+        "source_column": "country_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_countries",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_regions_state_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_regions",
+        "source_column": "state_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_states",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_restricted_occupation_occupation_name_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_restricted_occupations",
+        "source_column": "occupation_name_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_occupation_names",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_restricted_occupation_restricted_occupation_name_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_restricted_occupations",
+        "source_column": "restricted_occupation_name_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_occupation_names",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_stamp_duty_rates_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_stamp_duty_rates",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_stamp_duty_rates_region_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_stamp_duty_rates",
+        "source_column": "region_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_regions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_syndicate_binders_claims_handler",
+        "ordinal_position": 1,
+        "source_table": "cfg_syndicate_binders",
+        "source_column": "claims_handler_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_claims_handlers",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_syndicate_binders_syndicate_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_syndicate_binders",
+        "source_column": "syndicate_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicates",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_syndicate_binders_syndicate_binder_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_syndicate_binder_values",
+        "source_column": "syndicate_binder_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicate_binders",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_managing_agent_syndicate_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_syndicate_brokers",
+        "source_column": "syndicate_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicates",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_london_brokerage_binder_rates_syndicate_binder_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_syndicate_broker_binder_rates",
+        "source_column": "syndicate_binder_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicate_binders",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_syndicate_broker_binder_syndicate_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_syndicate_broker_binder_rates",
+        "source_column": "syndicate_broker_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicate_brokers",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_syndicate_lead_in_times_syndicate_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_syndicate_lead_in_times",
+        "source_column": "syndicate_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicates",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_syndicate_values_syndicate_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_syndicate_values",
+        "source_column": "syndicate_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicates",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_syndicate_wordings_syndicate_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_syndicate_wordings",
+        "source_column": "syndicate_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicates",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_syndicate_wordings_wording_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_syndicate_wordings",
+        "source_column": "wording_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_wordings",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_syndicate_contents_category_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_syndicate_wording_contents",
+        "source_column": "category_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_categories",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_syndicate_contents_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_syndicate_wording_contents",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_syndicate_contents_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_syndicate_wording_contents",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_syndicate_contents_syndicate_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_syndicate_wording_contents",
+        "source_column": "syndicate_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicates",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_syndicate_wording_contents_insurance_group_type_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_syndicate_wording_contents",
+        "source_column": "insurance_group_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_group_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_syndicate_content_version_syndicate_content_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_syndicate_wording_content_versions",
+        "source_column": "syndicate_wording_content_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicate_wording_contents",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_taxi_drivers_state_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_taxi_drivers",
+        "source_column": "state_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_states",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_taxi_drivers_pl_state_id_cfg_state_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_taxi_drivers_pl",
+        "source_column": "state_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_states",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_triggers_trigger_group_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_triggers",
+        "source_column": "trigger_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_trigger_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "cfg_variable_values_variable_id_fk",
+        "ordinal_position": 1,
+        "source_table": "cfg_variable_values",
+        "source_column": "variable_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_variables",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_winbeat_export_brokerages_brokerage_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_winbeat_export_brokerages",
+        "source_column": "brokerage_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_brokerages",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_wording_contents_wording_id",
+        "ordinal_position": 1,
+        "source_table": "cfg_wording_contents",
+        "source_column": "wording_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_wordings",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_addresses_postcode_id",
+        "ordinal_position": 1,
+        "source_table": "n_addresses",
+        "source_column": "postcode_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_postcodes",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_authorised_rep_brokerages_ar_user_details",
+        "ordinal_position": 1,
+        "source_table": "n_authorised_rep_brokerages",
+        "source_column": "authorised_rep_user_detail_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_authorised_rep_user_details",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_authorised_rep_brokerages_brokerage_id",
+        "ordinal_position": 1,
+        "source_table": "n_authorised_rep_brokerages",
+        "source_column": "brokerage_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_brokerages",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_bdm_assigned_states_region_id",
+        "ordinal_position": 1,
+        "source_table": "n_bdm_assigned_states",
+        "source_column": "region_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_regions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_addresses_brokerage_id",
+        "ordinal_position": 1,
+        "source_table": "n_brokerage_addresses",
+        "source_column": "brokerage_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_brokerages",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_addresses_region_id",
+        "ordinal_position": 1,
+        "source_table": "n_brokerage_addresses",
+        "source_column": "region_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_regions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_emails_brokerage_id",
+        "ordinal_position": 1,
+        "source_table": "n_brokerage_emails",
+        "source_column": "brokerage_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_brokerages",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_visits_bdm_event_id",
+        "ordinal_position": 1,
+        "source_table": "n_brokerage_visits",
+        "source_column": "bdm_event_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_bdm_events",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_visits_brokerage",
+        "ordinal_position": 1,
+        "source_table": "n_brokerage_visits",
+        "source_column": "brokerage_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_brokerages",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_visits_completed_by",
+        "ordinal_position": 1,
+        "source_table": "n_brokerage_visits",
+        "source_column": "completed_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_staff",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_visits_created_by",
+        "ordinal_position": 1,
+        "source_table": "n_brokerage_visits",
+        "source_column": "created_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_staff",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_visits_notified_by",
+        "ordinal_position": 1,
+        "source_table": "n_brokerage_visits",
+        "source_column": "notified_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_staff",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_visits_user",
+        "ordinal_position": 1,
+        "source_table": "n_brokerage_visits",
+        "source_column": "staff_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_staff",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_visit_brokerage_visit_id",
+        "ordinal_position": 1,
+        "source_table": "n_brokerage_visits_brokers",
+        "source_column": "brokerage_visit_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_brokerage_visits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_visit_broker_id",
+        "ordinal_position": 1,
+        "source_table": "n_brokerage_visits_brokers",
+        "source_column": "broker_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_brokers",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_bvt_brokerage_visit_id",
+        "ordinal_position": 1,
+        "source_table": "n_brokerage_visits_tags",
+        "source_column": "brokerage_visit_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_brokerage_visits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_bvt_tag_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_brokerage_visits_tags",
+        "source_column": "tag_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_brokerage_visits_tag_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_brokerage_visit_stats_user_id",
+        "ordinal_position": 1,
+        "source_table": "n_brokerage_visit_stats",
+        "source_column": "user_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_bab_brokerage_id",
+        "ordinal_position": 1,
+        "source_table": "n_broker_additional_brokerages",
+        "source_column": "brokerage_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_brokerages",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_bab_broker_id",
+        "ordinal_position": 1,
+        "source_table": "n_broker_additional_brokerages",
+        "source_column": "broker_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_brokers",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_broker_values_broker_id",
+        "ordinal_position": 1,
+        "source_table": "n_broker_values",
+        "source_column": "broker_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_brokers",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_claims_broker_id",
+        "ordinal_position": 1,
+        "source_table": "n_claims",
+        "source_column": "broker_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "n_claims_history_ibfk_1",
+        "ordinal_position": 1,
+        "source_table": "n_claims_history",
+        "source_column": "claim_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_claims",
+        "target_column": "id"
+    },
+    {
+        "name": "n_claims_milestones_ibfk_1",
+        "ordinal_position": 1,
+        "source_table": "n_claims_milestones",
+        "source_column": "claim_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_claims",
+        "target_column": "id"
+    },
+    {
+        "name": "n_claims_notes_ibfk_1",
+        "ordinal_position": 1,
+        "source_table": "n_claims_notes",
+        "source_column": "claim_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_claims",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_client_values_client",
+        "ordinal_position": 1,
+        "source_table": "n_client_values",
+        "source_column": "client_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_clients",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_declines_declined_by",
+        "ordinal_position": 1,
+        "source_table": "n_declines",
+        "source_column": "declined_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_declines_decline_reason_id",
+        "ordinal_position": 1,
+        "source_table": "n_declines",
+        "source_column": "decline_reason_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_decline_reasons",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_declines_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_declines",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_n_department_onboarding_checklist_onboarding_checklist_id",
+        "ordinal_position": 1,
+        "source_table": "n_department_onboarding_checklist",
+        "source_column": "onboarding_checklist_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_onboarding_checklist_items",
+        "target_column": "id"
+    },
+    {
+        "name": "n_developer_autofill_actions_ibfk_1",
+        "ordinal_position": 1,
+        "source_table": "n_developer_autofill_actions",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_form_response_proposal_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_form_responses",
+        "source_column": "proposal_period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_proposal_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "organiser",
+        "ordinal_position": 1,
+        "source_table": "n_hsua_events",
+        "source_column": "organiser",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_hsua_event_id",
+        "ordinal_position": 1,
+        "source_table": "n_hsua_event_attendees",
+        "source_column": "hsua_event_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_hsua_events",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_integrity_check_suppressions_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_integrity_check_suppressions",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_integrity_check_suppressions_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_integrity_check_suppressions",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_syndicate_rating_overrides_policy_id",
+        "ordinal_position": 1,
+        "source_table": "n_integrity_check_suppressions",
+        "source_column": "policy_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policies",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_syndicate_rating_overrides_syndicate_id",
+        "ordinal_position": 1,
+        "source_table": "n_integrity_check_suppressions",
+        "source_column": "syndicate_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicates",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_invoices_brokerage_id",
+        "ordinal_position": 1,
+        "source_table": "n_invoices",
+        "source_column": "brokerage_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_brokerages",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_invoices_created_by",
+        "ordinal_position": 1,
+        "source_table": "n_invoices",
+        "source_column": "created_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_invoices_last_contact_by",
+        "ordinal_position": 1,
+        "source_table": "n_invoices",
+        "source_column": "last_contact_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_invoices_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_invoices",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_invoices_reconciliation_id",
+        "ordinal_position": 1,
+        "source_table": "n_invoices",
+        "source_column": "reconciliation_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_reconciliations",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_invoices_refund_id",
+        "ordinal_position": 1,
+        "source_table": "n_invoices",
+        "source_column": "refund_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_refunds",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_invoices_remittance_id",
+        "ordinal_position": 1,
+        "source_table": "n_invoices",
+        "source_column": "remittance_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_remittances",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_invoices_updated_by",
+        "ordinal_position": 1,
+        "source_table": "n_invoices",
+        "source_column": "updated_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_accounts_payable_created_by",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_accounts_payable",
+        "source_column": "created_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_accounts_payable_invoice_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_accounts_payable",
+        "source_column": "invoice_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_invoices",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_accounts_payable_ledger_code_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_accounts_payable",
+        "source_column": "ledger_code_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_ledger_codes",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_accounts_payable_payment_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_accounts_payable",
+        "source_column": "payment_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_payments",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_accounts_payable_policy_cover_figures_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_accounts_payable",
+        "source_column": "policy_cover_figures_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_cover_figures",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_accounts_payable_reconciliation_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_accounts_payable",
+        "source_column": "reconciliation_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_reconciliations",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_accounts_payable_remittance_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_accounts_payable",
+        "source_column": "remittance_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_remittances",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_accounts_payable_syndicate_binder_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_accounts_payable",
+        "source_column": "syndicate_binder_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicate_binders",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_accounts_payable_syndicate_broker_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_accounts_payable",
+        "source_column": "syndicate_broker_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicate_brokers",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_accounts_payable_syndicate_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_accounts_payable",
+        "source_column": "syndicate_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicates",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_accounts_payable_updated_by",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_accounts_payable",
+        "source_column": "updated_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_accounts_receivable_created_by",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_accounts_receivable",
+        "source_column": "created_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_accounts_receivable_invoice_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_accounts_receivable",
+        "source_column": "invoice_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_invoices",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_accounts_receivable_ledger_code_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_accounts_receivable",
+        "source_column": "ledger_code_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_ledger_codes",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_accounts_receivable_payment_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_accounts_receivable",
+        "source_column": "payment_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_payments",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_accounts_receivable_policy_cover_figures_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_accounts_receivable",
+        "source_column": "policy_cover_figures_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_cover_figures",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_accounts_receivable_reconciliation_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_accounts_receivable",
+        "source_column": "reconciliation_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_reconciliations",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_accounts_receivable_remittance_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_accounts_receivable",
+        "source_column": "remittance_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_remittances",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_accounts_receivable_syndicate_binder_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_accounts_receivable",
+        "source_column": "syndicate_binder_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicate_binders",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_accounts_receivable_syndicate_broker_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_accounts_receivable",
+        "source_column": "syndicate_broker_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicate_brokers",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_accounts_receivable_syndicate_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_accounts_receivable",
+        "source_column": "syndicate_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicates",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_accounts_receivable_updated_by",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_accounts_receivable",
+        "source_column": "updated_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_business_account_created_by",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_business_account",
+        "source_column": "created_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_business_account_invoice_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_business_account",
+        "source_column": "invoice_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_invoices",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_business_account_ledger_code_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_business_account",
+        "source_column": "ledger_code_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_ledger_codes",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_business_account_payment_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_business_account",
+        "source_column": "payment_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_payments",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_business_account_policy_cover_figures_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_business_account",
+        "source_column": "policy_cover_figures_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_cover_figures",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_business_account_reconciliation_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_business_account",
+        "source_column": "reconciliation_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_reconciliations",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_business_account_remittance_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_business_account",
+        "source_column": "remittance_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_remittances",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_business_account_syndicate_binder_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_business_account",
+        "source_column": "syndicate_binder_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicate_binders",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_business_account_syndicate_broker_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_business_account",
+        "source_column": "syndicate_broker_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicate_brokers",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_business_account_syndicate_id",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_business_account",
+        "source_column": "syndicate_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicates",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ledger_business_account_updated_by",
+        "ordinal_position": 1,
+        "source_table": "n_ledger_business_account",
+        "source_column": "updated_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_linked_policies_linked_policy_group_id",
+        "ordinal_position": 1,
+        "source_table": "n_linked_policies",
+        "source_column": "linked_policy_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_linked_policy_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_linked_policies_policy_id",
+        "ordinal_position": 1,
+        "source_table": "n_linked_policies",
+        "source_column": "policy_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policies",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_marketing_emails_brokerage_id",
+        "ordinal_position": 1,
+        "source_table": "n_marketing_leads",
+        "source_column": "brokerage_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_brokerages",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_motor_vehicles_region_id",
+        "ordinal_position": 1,
+        "source_table": "n_motor_vehicles",
+        "source_column": "region_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_regions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_motor_vehicle_quotes_brokerage_id",
+        "ordinal_position": 1,
+        "source_table": "n_motor_vehicle_quotes",
+        "source_column": "brokerage_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_brokerages",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_motor_vehicle_quotes_broker_id",
+        "ordinal_position": 1,
+        "source_table": "n_motor_vehicle_quotes",
+        "source_column": "broker_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_motor_vehicle_quotes_region_id",
+        "ordinal_position": 1,
+        "source_table": "n_motor_vehicle_quotes",
+        "source_column": "region_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_regions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_motor_vehicle_quotes_vehicle_id",
+        "ordinal_position": 1,
+        "source_table": "n_motor_vehicle_quotes",
+        "source_column": "motor_vehicle_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_motor_vehicles",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_motor_vehicle_quotes_quote_id",
+        "ordinal_position": 1,
+        "source_table": "n_motor_vehicle_quote_vehicles",
+        "source_column": "motor_vehicle_quote_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_motor_vehicle_quotes",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payments_approved_by",
+        "ordinal_position": 1,
+        "source_table": "n_payments",
+        "source_column": "approved_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payments_created_by",
+        "ordinal_position": 1,
+        "source_table": "n_payments",
+        "source_column": "created_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payments_ledger_code_id",
+        "ordinal_position": 1,
+        "source_table": "n_payments",
+        "source_column": "ledger_code_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_ledger_codes",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payments_payment_export_id",
+        "ordinal_position": 1,
+        "source_table": "n_payments",
+        "source_column": "payment_export_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_payment_exports",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payments_payment_group_id",
+        "ordinal_position": 1,
+        "source_table": "n_payments",
+        "source_column": "payment_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_payment_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payments_processed_by",
+        "ordinal_position": 1,
+        "source_table": "n_payments",
+        "source_column": "processed_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payments_queued_by",
+        "ordinal_position": 1,
+        "source_table": "n_payments",
+        "source_column": "queued_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payments_reconciliation_id",
+        "ordinal_position": 1,
+        "source_table": "n_payments",
+        "source_column": "reconciliation_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_reconciliations",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payments_submitted_by",
+        "ordinal_position": 1,
+        "source_table": "n_payments",
+        "source_column": "submitted_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payments_updated_by",
+        "ordinal_position": 1,
+        "source_table": "n_payments",
+        "source_column": "updated_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payment_bordereau_created_by",
+        "ordinal_position": 1,
+        "source_table": "n_payment_bordereau",
+        "source_column": "created_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payment_bordereau_processed_by",
+        "ordinal_position": 1,
+        "source_table": "n_payment_bordereau",
+        "source_column": "processed_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payment_bordereau_syndicate_id",
+        "ordinal_position": 1,
+        "source_table": "n_payment_bordereau",
+        "source_column": "syndicate_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicates",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payment_bordereau_updated_by",
+        "ordinal_position": 1,
+        "source_table": "n_payment_bordereau",
+        "source_column": "updated_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payment_exports_created_by",
+        "ordinal_position": 1,
+        "source_table": "n_payment_exports",
+        "source_column": "created_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payment_exports_exported_by",
+        "ordinal_position": 1,
+        "source_table": "n_payment_exports",
+        "source_column": "exported_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payment_exports_processed_by",
+        "ordinal_position": 1,
+        "source_table": "n_payment_exports",
+        "source_column": "processed_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payment_exports_updated_by",
+        "ordinal_position": 1,
+        "source_table": "n_payment_exports",
+        "source_column": "updated_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payment_groups_approved_by",
+        "ordinal_position": 1,
+        "source_table": "n_payment_groups",
+        "source_column": "approved_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payment_groups_created_by",
+        "ordinal_position": 1,
+        "source_table": "n_payment_groups",
+        "source_column": "created_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payment_groups_ledger_code_id",
+        "ordinal_position": 1,
+        "source_table": "n_payment_groups",
+        "source_column": "ledger_code_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_ledger_codes",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payment_groups_payment_export_id",
+        "ordinal_position": 1,
+        "source_table": "n_payment_groups",
+        "source_column": "payment_export_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_payment_exports",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payment_groups_processed_by",
+        "ordinal_position": 1,
+        "source_table": "n_payment_groups",
+        "source_column": "processed_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payment_groups_queued_by",
+        "ordinal_position": 1,
+        "source_table": "n_payment_groups",
+        "source_column": "queued_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_payment_groups_updated_by",
+        "ordinal_position": 1,
+        "source_table": "n_payment_groups",
+        "source_column": "updated_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_capital_insurance_type_limit_id",
+        "ordinal_position": 1,
+        "source_table": "n_personal_accident_persons",
+        "source_column": "capital_insurance_type_limit_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_type_limits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_injury_insurance_type_limit_id",
+        "ordinal_position": 1,
+        "source_table": "n_personal_accident_persons",
+        "source_column": "injury_insurance_type_limit_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_type_limits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_mbe_insurance_type_limit_id",
+        "ordinal_position": 1,
+        "source_table": "n_personal_accident_persons",
+        "source_column": "mbe_insurance_type_limit_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_type_limits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_personal_accident_persons_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_personal_accident_persons",
+        "source_column": "policy_period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policies_underwriter",
+        "ordinal_position": 1,
+        "source_table": "n_policies",
+        "source_column": "underwriter_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_staff",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_p_broker_id",
+        "ordinal_position": 1,
+        "source_table": "n_policies",
+        "source_column": "broker_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_brokers",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_p_client_id",
+        "ordinal_position": 1,
+        "source_table": "n_policies",
+        "source_column": "client_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_clients",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_p_current_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policies",
+        "source_column": "current_period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_p_updated_by",
+        "ordinal_position": 1,
+        "source_table": "n_policies",
+        "source_column": "updated_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pav_policy_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_actual_values",
+        "source_column": "policy_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policies",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pa_address_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_addresses",
+        "source_column": "address_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_addresses",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pa_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_addresses",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_bind_overrides_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_bind_overrides",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_bind_overrides_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_bind_overrides",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pch_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_change_history",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pch_user_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_change_history",
+        "source_column": "user_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_claims_policy_claim_reason_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_claims",
+        "source_column": "policy_claim_reason_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_policy_claim_reasons",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_claim_lodgements_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_claim_lodgements",
+        "source_column": "claim_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_claims",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_closing_reviews_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_closing_reviews",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_closing_reviews_reviewed_by",
+        "ordinal_position": 1,
+        "source_table": "n_policy_closing_reviews",
+        "source_column": "reviewed_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_closing_reviews_uploaded_by",
+        "ordinal_position": 1,
+        "source_table": "n_policy_closing_reviews",
+        "source_column": "uploaded_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_covers_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_covers",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_covers_insurance_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_covers",
+        "source_column": "insurance_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_covers_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_covers",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_covers_policy_group_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_covers",
+        "source_column": "policy_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_cover_figures_insurance_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_cover_figures",
+        "source_column": "insurance_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_cover_figures_invoice_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_cover_figures",
+        "source_column": "invoice_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_invoices",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_cover_figures_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_cover_figures",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_cover_figures_policy_cover_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_cover_figures",
+        "source_column": "policy_cover_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_covers",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_cover_figures_policy_group_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_cover_figures",
+        "source_column": "policy_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_cover_retro_date_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_cover_retroactive_dates",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_cover_retro_date_policy_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_cover_retroactive_dates",
+        "source_column": "policy_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policies",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pctv_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_cover_type_values",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pctv_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_cover_type_values",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pctv_policy_group_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_cover_type_values",
+        "source_column": "policy_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_documents_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_documents",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pe_endorsement_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_endorsements",
+        "source_column": "endorsement_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_endorsements",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pe_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_endorsements",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pe_policy_group_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_endorsements",
+        "source_column": "policy_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pee_endorsement_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_endorsement_exclusions",
+        "source_column": "endorsement_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_endorsements",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pee_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_endorsement_exclusions",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pee_policy_group_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_endorsement_exclusions",
+        "source_column": "policy_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_generated_stamp_duty_exemptions_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_generated_stamp_duty_exemptions",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_groups_group_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_groups",
+        "source_column": "group_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_categories",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_groups_policy_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_groups",
+        "source_column": "policy_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policies",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_important_reminders_policy_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_important_reminders",
+        "source_column": "policy_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policies",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_insurance_type_values_insurance_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_insurance_type_values",
+        "source_column": "insurance_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_insurance_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_insurance_type_values_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_insurance_type_values",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_cover_type_id_key_premium_factors",
+        "ordinal_position": 1,
+        "source_table": "n_policy_key_premium_factors",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_period_id_key_premium_factors",
+        "ordinal_position": 1,
+        "source_table": "n_policy_key_premium_factors",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_group_id_key_premium_factors",
+        "ordinal_position": 1,
+        "source_table": "n_policy_key_premium_factors",
+        "source_column": "policy_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_motor_vehicles_motor_vehicle_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_motor_vehicles",
+        "source_column": "motor_vehicle_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_motor_vehicles",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_motor_vehicles_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_motor_vehicles",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_notes_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_notes",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_notes_user_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_notes",
+        "source_column": "user_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_po_occupation_name_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_occupations",
+        "source_column": "occupation_name_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_occupation_names",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_po_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_occupations",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_periods_created_by",
+        "ordinal_position": 1,
+        "source_table": "n_policy_periods",
+        "source_column": "created_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_periods_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_periods",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_periods_updated_by",
+        "ordinal_position": 1,
+        "source_table": "n_policy_periods",
+        "source_column": "updated_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pp_policy_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_periods",
+        "source_column": "policy_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policies",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_reporting_product_type_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_periods",
+        "source_column": "reporting_product_type",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_period_caches_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_caches",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_cover_changes_cover_type_id_fk",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_cover_changes",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_cover_changes_period_id_fk",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_cover_changes",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ppcsi_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_cover_sum_insureds",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ppcsi_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_cover_sum_insureds",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ppcsi_policy_group_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_cover_sum_insureds",
+        "source_column": "policy_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ppcsi_sum_insured_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_cover_sum_insureds",
+        "source_column": "sum_insured_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_categories",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ppce_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_custom_excesses",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ppce_excess_basis_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_custom_excesses",
+        "source_column": "excess_basis_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_excess_bases",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ppce_excess_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_custom_excesses",
+        "source_column": "excess_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_excesses",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ppce_excess_limit_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_custom_excesses",
+        "source_column": "excess_limit_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_excess_limits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ppce_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_custom_excesses",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ppce_policy_group_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_custom_excesses",
+        "source_column": "policy_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_custom_questions_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_custom_questions",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_custom_questions_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_custom_questions",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_custom_questions_question_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_custom_questions",
+        "source_column": "question_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_questions",
+        "target_column": "id"
+    },
+    {
+        "name": "n_policy_period_questions_ibfk_1",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_questions",
+        "source_column": "policy_period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "n_policy_period_questions_ibfk_2",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_questions",
+        "source_column": "question_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_questions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_period_referral_reasons_hsua_approved_by",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_referral_reasons",
+        "source_column": "hsua_approved_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_staff",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_period_referral_reasons_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_referral_reasons",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_period_referral_reasons_referral_reason_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_referral_reasons",
+        "source_column": "referral_reason_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_referral_reasons",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pprr_policy_group_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_referral_reasons",
+        "source_column": "policy_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_split_period",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_region_splits",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_split_region",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_region_splits",
+        "source_column": "region_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_regions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ppsfb_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_state_figures_breakdowns",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ppsfb_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_state_figures_breakdowns",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ppsfb_policy_group_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_state_figures_breakdowns",
+        "source_column": "policy_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ppsfb_region_split",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_state_figures_breakdowns",
+        "source_column": "policy_period_region_split_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_period_region_splits",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ppv_policy_group_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_values",
+        "source_column": "policy_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pv_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_period_values",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ppf_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_premium_figures",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ppf_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_premium_figures",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ppf_policy_group_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_premium_figures",
+        "source_column": "policy_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ppofb_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_premium_old_figure_backups",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pppf_policy_premium_figures_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_premium_payable_figures",
+        "source_column": "policy_premium_figures_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_premium_figures",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pqr_answer_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_question_responses",
+        "source_column": "answer_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_question_answers",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pqr_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_question_responses",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pqr_policy_group_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_question_responses",
+        "source_column": "policy_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pqtr_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_question_text_responses",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pqtr_policy_group_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_question_text_responses",
+        "source_column": "policy_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_pqtr_question_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_question_text_responses",
+        "source_column": "question_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_questions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_road_risk_vehicles_category_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_road_risk_vehicles",
+        "source_column": "category_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_categories",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_road_risk_vehicles_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_road_risk_vehicles",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_road_risk_vehicles_region_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_road_risk_vehicles",
+        "source_column": "region_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_regions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ps_address_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_situations",
+        "source_column": "address_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_addresses",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ps_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_situations",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_ps_policy_group_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_situations",
+        "source_column": "policy_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_psv_situation_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_situation_values",
+        "source_column": "situation_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_situations",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_things_category_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_things",
+        "source_column": "category_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_categories",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_things_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_things",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_policy_things_policy_group_id",
+        "ordinal_position": 1,
+        "source_table": "n_policy_things",
+        "source_column": "policy_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_product_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_proposals",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_proposal_broker_id",
+        "ordinal_position": 1,
+        "source_table": "n_proposals",
+        "source_column": "broker_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_proposal_file_proposal_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_proposal_files",
+        "source_column": "proposal_period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_proposal_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_proposal_period_proposal_id",
+        "ordinal_position": 1,
+        "source_table": "n_proposal_periods",
+        "source_column": "proposal_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_proposals",
+        "target_column": "id"
+    },
+    {
+        "name": "n_proposal_questions_ibfk_1",
+        "ordinal_position": 1,
+        "source_table": "n_proposal_questions",
+        "source_column": "proposal_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_proposals",
+        "target_column": "id"
+    },
+    {
+        "name": "n_proposal_questions_ibfk_2",
+        "ordinal_position": 1,
+        "source_table": "n_proposal_questions",
+        "source_column": "question_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_questions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_proposal_quotes_policy_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_proposal_quotes",
+        "source_column": "policy_period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_proposal_quotes_proposal_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_proposal_quotes",
+        "source_column": "proposal_period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_proposal_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_proposal_quote_file_proposal_quote_id",
+        "ordinal_position": 1,
+        "source_table": "n_proposal_quote_files",
+        "source_column": "proposal_quote_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_proposal_quotes",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_reconciliations_created_by",
+        "ordinal_position": 1,
+        "source_table": "n_reconciliations",
+        "source_column": "created_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_reconciliations_processed_by",
+        "ordinal_position": 1,
+        "source_table": "n_reconciliations",
+        "source_column": "processed_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_reconciliations_updated_by",
+        "ordinal_position": 1,
+        "source_table": "n_reconciliations",
+        "source_column": "updated_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_remittances_authorised_rep_id",
+        "ordinal_position": 1,
+        "source_table": "n_remittances",
+        "source_column": "authorised_rep_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_authorised_reps",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_remittances_brokerage_head_group_id",
+        "ordinal_position": 1,
+        "source_table": "n_remittances",
+        "source_column": "brokerage_head_group_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_brokerage_head_groups",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_remittances_brokerage_id",
+        "ordinal_position": 1,
+        "source_table": "n_remittances",
+        "source_column": "brokerage_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_brokerages",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_remittances_created_by",
+        "ordinal_position": 1,
+        "source_table": "n_remittances",
+        "source_column": "created_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_remittances_daily_banking_id",
+        "ordinal_position": 1,
+        "source_table": "n_remittances",
+        "source_column": "daily_banking_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_daily_banking",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_remittances_processed_by",
+        "ordinal_position": 1,
+        "source_table": "n_remittances",
+        "source_column": "processed_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_remittances_reconciliation_id",
+        "ordinal_position": 1,
+        "source_table": "n_remittances",
+        "source_column": "reconciliation_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_reconciliations",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_remittances_updated_by",
+        "ordinal_position": 1,
+        "source_table": "n_remittances",
+        "source_column": "updated_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_rc_policy_question_response_id",
+        "ordinal_position": 1,
+        "source_table": "n_response_comments",
+        "source_column": "policy_question_response_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_question_responses",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_reports_to_staff_id",
+        "ordinal_position": 1,
+        "source_table": "n_staff",
+        "source_column": "reports_to",
+        "target_schema": "hsua_portal",
+        "target_table": "n_staff",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_staff_staff_role_id",
+        "ordinal_position": 1,
+        "source_table": "n_staff",
+        "source_column": "staff_role_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_staff_roles",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_staff_values_staff_id",
+        "ordinal_position": 1,
+        "source_table": "n_staff_values",
+        "source_column": "staff_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_staff",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_statement_brokerage_id",
+        "ordinal_position": 1,
+        "source_table": "n_statements",
+        "source_column": "brokerage_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_brokerages",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_statement_mail_queue_id",
+        "ordinal_position": 1,
+        "source_table": "n_statements",
+        "source_column": "mail_queue_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_mail_queue",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_survey_survey_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_surveys",
+        "source_column": "survey_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_survey_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_survey_user_id",
+        "ordinal_position": 1,
+        "source_table": "n_surveys",
+        "source_column": "user_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_tokens_policy_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_tokens",
+        "source_column": "policy_period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_token_product_types_id",
+        "ordinal_position": 1,
+        "source_table": "n_tokens",
+        "source_column": "product_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_product_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_transactions_broker_id",
+        "ordinal_position": 1,
+        "source_table": "n_transactions",
+        "source_column": "user_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_transactions_category_id",
+        "ordinal_position": 1,
+        "source_table": "n_transactions",
+        "source_column": "category_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_categories",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_transactions_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_transactions",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_categories_category_id",
+        "ordinal_position": 1,
+        "source_table": "n_trivia_quizzes",
+        "source_column": "category_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_categories",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_uploaded_taxi_csv_files_attempted_csv_upload_id",
+        "ordinal_position": 1,
+        "source_table": "n_uploaded_taxi_csv_files",
+        "source_column": "attempted_csv_upload_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_attempted_csv_uploads",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_uploaded_taxi_csv_files_broker_id",
+        "ordinal_position": 1,
+        "source_table": "n_uploaded_taxi_csv_files",
+        "source_column": "user_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_uploaded_taxi_csv_file_id",
+        "ordinal_position": 1,
+        "source_table": "n_uploaded_taxi_csv_file_rows",
+        "source_column": "uploaded_taxi_csv_file_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_uploaded_taxi_csv_files",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_uploaded_taxi_csv_legacy_batch_id",
+        "ordinal_position": 1,
+        "source_table": "n_uploaded_taxi_csv_file_rows",
+        "source_column": "legacy_batch_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_taxi_driver_csv_batches",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_broker_access_types_access_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_user_access_types",
+        "source_column": "access_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_access_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_user_change_history_updated_by",
+        "ordinal_position": 1,
+        "source_table": "n_user_change_history",
+        "source_column": "updated_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_user_change_history_user_id",
+        "ordinal_position": 1,
+        "source_table": "n_user_change_history",
+        "source_column": "user_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_broker_permissions_permission_id",
+        "ordinal_position": 1,
+        "source_table": "n_user_permissions",
+        "source_column": "permission_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_permissions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_broker_permission_exclusions_permission_id",
+        "ordinal_position": 1,
+        "source_table": "n_user_permission_exclusions",
+        "source_column": "permission_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_permissions",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_vehicle_make_id",
+        "ordinal_position": 1,
+        "source_table": "n_vehicle_make_aliases",
+        "source_column": "vehicle_make_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_vehicle_makes",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_winbeat_invoice_brokerage_brokerage_id",
+        "ordinal_position": 1,
+        "source_table": "n_winbeat_invoice_brokerages",
+        "source_column": "brokerage_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_brokerages",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_winbeat_invoice_brokerage_imported_by",
+        "ordinal_position": 1,
+        "source_table": "n_winbeat_invoice_brokerages",
+        "source_column": "imported_by",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_winbeat_invoice_policy_policy_id",
+        "ordinal_position": 1,
+        "source_table": "n_winbeat_invoice_policies",
+        "source_column": "policy_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policies",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_winbeat_invoice_policy_winbeat_invoice_brokerage_id",
+        "ordinal_position": 1,
+        "source_table": "n_winbeat_invoice_policies",
+        "source_column": "winbeat_invoice_brokerage_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_winbeat_invoice_brokerages",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_wbc_syndicate_id",
+        "ordinal_position": 1,
+        "source_table": "n_winbeat_policy_covers",
+        "source_column": "syndicate_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_syndicates",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_wpc_cover_type_id",
+        "ordinal_position": 1,
+        "source_table": "n_winbeat_policy_covers",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_wpc_winbeat_policy_term_id",
+        "ordinal_position": 1,
+        "source_table": "n_winbeat_policy_covers",
+        "source_column": "winbeat_policy_term_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_winbeat_policy_terms",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_wb_period_id",
+        "ordinal_position": 1,
+        "source_table": "n_winbeat_policy_terms",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_wp_policy_id",
+        "ordinal_position": 1,
+        "source_table": "n_winbeat_policy_terms",
+        "source_column": "policy_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policies",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_wp_winbeat_client_id",
+        "ordinal_position": 1,
+        "source_table": "n_winbeat_policy_terms",
+        "source_column": "winbeat_client_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_winbeat_clients",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_range_based_rates_category_id",
+        "ordinal_position": 1,
+        "source_table": "_deprecated_cfg_cover_type_range_rates",
+        "source_column": "cover_type_id",
+        "target_schema": "hsua_portal",
+        "target_table": "cfg_cover_types",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_banking_log_user_id",
+        "ordinal_position": 1,
+        "source_table": "_log_banking",
+        "source_column": "user_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_users",
+        "target_column": "id"
+    },
+    {
+        "name": "fk_insight_log_period_id",
+        "ordinal_position": 1,
+        "source_table": "_log_insight",
+        "source_column": "period_id",
+        "target_schema": "hsua_portal",
+        "target_table": "n_policy_periods",
+        "target_column": "id"
+    }
+]

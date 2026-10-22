@@ -43,7 +43,6 @@ $service = new SchemaRelationshipProfilingService(
 $result = $service->analyzeAndProfile(
     $schema,
     sampleLimit: 100,
-    maxDeclaredToProfile: 5,
     maxInferredToProfile: 20,
 );
 
@@ -130,7 +129,11 @@ $report = [
     'schema_summary' => [
         'table_count' => count($schema['tables']),
         'column_count' => count($schema['columns']),
-        'declared_foreign_key_count' => count($schema['foreign_keys']),
+        'index_count' => count($schema['indexes'] ?? []),
+        'declared_foreign_key_count' => count(
+            $schema['foreign_key_constraints'] ?? [],
+        ),
+        'foreign_key_column_pair_count' => count($schema['foreign_keys']),
     ],
     'declared_relationships' => $summarise(
         $result['declared_relationships'],

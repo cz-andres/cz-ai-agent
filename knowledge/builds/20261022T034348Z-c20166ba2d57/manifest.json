@@ -1,0 +1,50 @@
+{
+    "format_version": 3,
+    "build_id": "20261022T034348Z-c20166ba2d57",
+    "generated_at": "2026-10-22T03:43:48+00:00",
+    "source": {
+        "database": "hsua_portal",
+        "schema_fingerprint": "ebd3256c112584fba249a7b051dfb2aa873d6c316c50b1b8f8b607f6405adf95"
+    },
+    "schema_summary": {
+        "table_count": 455,
+        "column_count": 3214,
+        "index_count": 1257,
+        "declared_foreign_key_count": 498,
+        "foreign_key_column_pair_count": 498
+    },
+    "profiling_config": {
+        "sample_limit": 100,
+        "declared_relationship_mode": "all_declared_constraints",
+        "max_inferred_to_profile": 20
+    },
+    "coverage": {
+        "structural_catalog_complete": true,
+        "declared_constraints_total": 498,
+        "declared_constraints_with_profile_outcome": 498,
+        "declared_constraints_profiled": 428,
+        "declared_profile_status_counts": {
+            "no_sampled_values": 70,
+            "profiled": 428
+        },
+        "inferred_candidates_total": 1023,
+        "inferred_candidates_profiled": 20,
+        "inferred_profile_status_counts": {
+            "profiled": 20,
+            "skipped_candidate_limit": 1003
+        },
+        "build_complete": true,
+        "max_inferred_to_profile": 20
+    },
+    "artifacts": {
+        "catalog/tables.json": "6988e3a0abf5ce71a6537a5695749663b955707b90c4886ada84875d8f739ec9",
+        "catalog/columns.json": "151581510f02ba6f94b657ef869954bb900e462a62cd90007b6e4c9b21b6a77b",
+        "catalog/indexes.json": "0b34683a1079378a1759bff9e1fbd29a08a0a39e973555b10f9d10911b5b42f4",
+        "catalog/foreign-keys.json": "31791601a49d696c00d1dc9f37fe292e7801911bd7b5eb68b972597cf98c79dc",
+        "catalog/foreign-key-constraints.json": "104d19aaf3c4a825a9f18ef994c6f5a62609034fc30a65018e2ac35de413a8c8",
+        "relationships/declared.json": "8c95aa6957adfec4374af79722ec417eb0098d48cdca0bc7b099c3f3f7fd334c",
+        "relationships/inferred.json": "6778af941fe82b280b9ee047fe95ddbd318b3de92e322cf0502f3be9abbf2818",
+        "profiling/declared.json": "e7f8de204be9aa2073730ba0e885723cfc5c7c5ce4e44d794de61ce0ad28a702",
+        "profiling/inferred.json": "c6bd7fbd63a8e5f1dfcbc96e25cbf39f66e1197a55bf114b0681aba9c1a67fe3"
+    }
+}

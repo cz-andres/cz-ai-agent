@@ -102,7 +102,7 @@ final class KnowledgeBaseLoaderTest extends TestCase
         SchemaFingerprint $fingerprint,
     ): array {
         return [
-            'format_version' => 2,
+            'format_version' => 3,
             'generated_at' => gmdate('c'),
             'source' => [
                 'database' => $schema['database'],
@@ -111,15 +111,33 @@ final class KnowledgeBaseLoaderTest extends TestCase
             'schema_summary' => [
                 'table_count' => count($schema['tables']),
                 'column_count' => count($schema['columns']),
+                'index_count' => 0,
                 'declared_foreign_key_count' =>
+                    count($schema['foreign_keys']),
+                'foreign_key_column_pair_count' =>
                     count($schema['foreign_keys']),
             ],
             'profiling_config' => [
                 'sample_limit' => 100,
-                'max_declared_to_profile' => 5,
+                'declared_relationship_mode' => 'all_declared_constraints',
                 'max_inferred_to_profile' => 20,
             ],
-            'schema' => $schema,
+            'coverage' => [
+                'structural_catalog_complete' => true,
+                'declared_constraints_total' => 0,
+                'declared_constraints_with_profile_outcome' => 0,
+                'declared_constraints_profiled' => 0,
+                'declared_profile_status_counts' => [],
+                'inferred_candidates_total' => 0,
+                'inferred_candidates_profiled' => 0,
+                'inferred_profile_status_counts' => [],
+                'build_complete' => true,
+                'max_inferred_to_profile' => 20,
+            ],
+            'schema' => array_replace($schema, [
+                'indexes' => [],
+                'foreign_key_constraints' => [],
+            ]),
             'relationships' => [
                 'declared_relationships' => [],
                 'inferred_candidates' => [],

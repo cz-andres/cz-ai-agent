@@ -32,38 +32,38 @@ final class SchemaRelationshipAnalyzer
         $declared = [];
         $declaredKeys = [];
 
-        foreach ($schema['foreign_keys'] as $foreignKey) {
-            $sourceTable = (string) $foreignKey['source_table'];
-            $sourceColumn = (string) $foreignKey['source_column'];
-            $targetTable = (string) $foreignKey['target_table'];
-            $targetColumn = (string) $foreignKey['target_column'];
+        foreach ($this->foreignKeyConstraints($schema) as $constraint) {
+            $sourceTable = (string) $constraint['source_table'];
+            $targetTable = (string) $constraint['target_table'];
+            $columnPairs = $constraint['columns'];
+            $firstPair = $columnPairs[0];
 
             $declared[] = [
-                'constraint_name' => $foreignKey['name'],
+                'constraint_name' => $constraint['name'],
                 'source_table' => $sourceTable,
-                'source_column' => $sourceColumn,
-                'target_schema' => $foreignKey['target_schema'],
+                'source_column' => $firstPair['source_column'],
+                'target_schema' => $constraint['target_schema'],
                 'target_table' => $targetTable,
-                'target_column' => $targetColumn,
+                'target_column' => $firstPair['target_column'],
+                'column_pairs' => $columnPairs,
                 'status' => 'declared_foreign_key',
             ];
 
-            $declaredKeys[$this->relationshipKey(
-                $sourceTable,
-                $sourceColumn,
-                $targetTable,
-                $targetColumn,
-            )] = true;
+            foreach ($columnPairs as $pair) {
+                $declaredKeys[$this->relationshipKey(
+                    $sourceTable,
+                    $pair['source_column'],
+                    $targetTable,
+                    $pair['target_column'],
+                )] = true;
+            }
         }
 
         $targetKeysByTable = [];
 
         foreach ($columnsByTable as $tableName => $tableColumns) {
             foreach ($tableColumns as $metadata) {
-                if (
-                    !($metadata['is_primary_key'] ?? false)
-                    && !($metadata['is_unique'] ?? false)
-                ) {
+                if (!($metadata['is_unique'] ?? false)) {
                     continue;
                 }
 
@@ -191,6 +191,65 @@ final class SchemaRelationshipAnalyzer
             'declared_relationships' => $declared,
             'inferred_candidates' => $candidates,
         ];
+    }
+
+    /**
+     * @param array<string, mixed> $schema
+     * @return list<array{
+     *     name: string,
+     *     source_table: string,
+     *     target_schema: string,
+     *     target_table: string,
+     *     columns: list<array{
+     *         source_column: string,
+     *         target_column: string,
+     *         ordinal_position: int
+     *     }>
+     * }>
+     */
+    private function foreignKeyConstraints(array $schema): array
+    {
+        if (is_array($schema['foreign_key_constraints'] ?? null)) {
+            return $schema['foreign_key_constraints'];
+        }
+
+        $constraints = [];
+
+        foreach ($schema['foreign_keys'] as $index => $foreignKey) {
+            $key = json_encode([
+                $foreignKey['source_table'],
+                $foreignKey['name'] ?? "unnamed-{$index}",
+                $foreignKey['target_schema'] ?? null,
+                $foreignKey['target_table'],
+            ], JSON_THROW_ON_ERROR);
+
+            $constraints[$key] ??= [
+                'name' => (string) ($foreignKey['name'] ?? ''),
+                'source_table' => (string) $foreignKey['source_table'],
+                'target_schema' => (string) ($foreignKey['target_schema'] ?? ''),
+                'target_table' => (string) $foreignKey['target_table'],
+                'columns' => [],
+            ];
+            $constraints[$key]['columns'][] = [
+                'source_column' => (string) $foreignKey['source_column'],
+                'target_column' => (string) $foreignKey['target_column'],
+                'ordinal_position' => (int) (
+                    $foreignKey['ordinal_position'] ?? $index + 1
+                ),
+            ];
+        }
+
+        foreach ($constraints as &$constraint) {
+            usort(
+                $constraint['columns'],
+                static fn (array $left, array $right): int =>
+                    $left['ordinal_position'] <=> $right['ordinal_position'],
+            );
+
+        }
+        unset($constraint);
+
+        return array_values($constraints);
     }
 
     private function relationshipStem(string $columnName): ?string

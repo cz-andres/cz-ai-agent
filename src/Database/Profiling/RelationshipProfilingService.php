@@ -39,19 +39,19 @@ final class RelationshipProfilingService
 
         foreach ($candidates as $candidate) {
             if (
-                !isset(
-                    $candidate['source_table'],
-                    $candidate['source_column'],
-                    $candidate['target_table'],
-                    $candidate['target_column'],
-                )
+                !isset($candidate['source_table'], $candidate['target_table'])
                 || !is_string($candidate['source_table'])
-                || !is_string($candidate['source_column'])
                 || !is_string($candidate['target_table'])
-                || !is_string($candidate['target_column'])
+                || (
+                    !is_array($candidate['column_pairs'] ?? null)
+                    && (
+                        !is_string($candidate['source_column'] ?? null)
+                        || !is_string($candidate['target_column'] ?? null)
+                    )
+                )
             ) {
                 throw new InvalidArgumentException(
-                    'Each candidate must contain valid source and target table and column names.'
+                    'Each candidate must contain valid source and target tables and columns.'
                 );
             }
 

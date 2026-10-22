@@ -8,7 +8,7 @@ use RuntimeException;
 
 final class KnowledgeBaseStore
 {
-    private const FORMAT_VERSION = 2;
+    private const FORMAT_VERSION = 3;
 
     /**
      * @var array<string, string>
@@ -16,7 +16,9 @@ final class KnowledgeBaseStore
     private const ARTIFACT_PATHS = [
         'tables' => 'catalog/tables.json',
         'columns' => 'catalog/columns.json',
+        'indexes' => 'catalog/indexes.json',
         'foreign_keys' => 'catalog/foreign-keys.json',
+        'foreign_key_constraints' => 'catalog/foreign-key-constraints.json',
         'declared_relationships' => 'relationships/declared.json',
         'inferred_candidates' => 'relationships/inferred.json',
         'declared_profiling' => 'profiling/declared.json',
@@ -87,6 +89,7 @@ final class KnowledgeBaseStore
                 'source' => $snapshot['source'],
                 'schema_summary' => $snapshot['schema_summary'],
                 'profiling_config' => $snapshot['profiling_config'],
+                'coverage' => $snapshot['coverage'],
                 'artifacts' => $checksums,
             ];
             $manifestJson = $this->encode($manifest);
@@ -184,11 +187,15 @@ final class KnowledgeBaseStore
             'source' => $manifest['source'],
             'schema_summary' => $manifest['schema_summary'],
             'profiling_config' => $manifest['profiling_config'],
+            'coverage' => $manifest['coverage'],
             'schema' => [
                 'database' => $manifest['source']['database'],
                 'tables' => $artifacts['tables'],
                 'columns' => $artifacts['columns'],
+                'indexes' => $artifacts['indexes'],
                 'foreign_keys' => $artifacts['foreign_keys'],
+                'foreign_key_constraints' =>
+                    $artifacts['foreign_key_constraints'],
             ],
             'relationships' => [
                 'declared_relationships' => $this->mergeProfiling(
@@ -225,6 +232,7 @@ final class KnowledgeBaseStore
                      'source',
                      'schema_summary',
                      'profiling_config',
+                     'coverage',
                      'schema',
                      'relationships',
                  ] as $key) {
@@ -234,6 +242,20 @@ final class KnowledgeBaseStore
                 );
             }
         }
+
+        if (
+            !is_array($snapshot['schema_summary'])
+            || !is_array($snapshot['profiling_config'])
+            || !is_array($snapshot['coverage'])
+        ) {
+            throw new RuntimeException(
+                'Knowledge library metadata has an invalid structure.',
+            );
+        }
+
+        $this->validateSummary($snapshot['schema_summary']);
+        $this->validateProfilingConfig($snapshot['profiling_config']);
+        $this->validateCoverage($snapshot['coverage']);
 
         if (
             !is_array($snapshot['source'])
@@ -248,7 +270,10 @@ final class KnowledgeBaseStore
             || !is_array($snapshot['schema'])
             || !is_array($snapshot['schema']['tables'] ?? null)
             || !is_array($snapshot['schema']['columns'] ?? null)
+            || !is_array($snapshot['schema']['indexes'] ?? null)
             || !is_array($snapshot['schema']['foreign_keys'] ?? null)
+            || !is_array($snapshot['schema']['foreign_key_constraints'] ?? null)
+            || !is_array($snapshot['coverage'])
             || !is_array($snapshot['relationships'])
             || !is_array(
                 $snapshot['relationships']['declared_relationships']
@@ -273,7 +298,10 @@ final class KnowledgeBaseStore
         return [
             'tables' => $snapshot['schema']['tables'],
             'columns' => $snapshot['schema']['columns'],
+            'indexes' => $snapshot['schema']['indexes'] ?? [],
             'foreign_keys' => $snapshot['schema']['foreign_keys'],
+            'foreign_key_constraints' =>
+                $snapshot['schema']['foreign_key_constraints'] ?? [],
             'declared_relationships' => $this->stripProfiling(
                 $snapshot['relationships']['declared_relationships'],
             ),
@@ -498,12 +526,17 @@ final class KnowledgeBaseStore
             )
             || !is_array($manifest['schema_summary'] ?? null)
             || !is_array($manifest['profiling_config'] ?? null)
+            || !is_array($manifest['coverage'] ?? null)
             || !is_array($manifest['artifacts'] ?? null)
         ) {
             throw new RuntimeException(
                 'Knowledge library manifest has an invalid structure.',
             );
         }
+
+        $this->validateSummary($manifest['schema_summary']);
+        $this->validateProfilingConfig($manifest['profiling_config']);
+        $this->validateCoverage($manifest['coverage']);
 
         if (count($manifest['artifacts']) !== count(self::ARTIFACT_PATHS)) {
             throw new RuntimeException(
@@ -522,6 +555,129 @@ final class KnowledgeBaseStore
                     'Knowledge library manifest has an invalid artifact checksum.',
                 );
             }
+        }
+    }
+
+    /**
+     * @param array<string, mixed> $summary
+     */
+    private function validateSummary(array $summary): void
+    {
+        foreach ([
+                     'table_count',
+                     'column_count',
+                     'index_count',
+                     'declared_foreign_key_count',
+                     'foreign_key_column_pair_count',
+                 ] as $key) {
+            if (!is_int($summary[$key] ?? null) || $summary[$key] < 0) {
+                throw new RuntimeException(
+                    'Knowledge library schema summary has an invalid structure.',
+                );
+            }
+        }
+    }
+
+    /**
+     * @param array<string, mixed> $config
+     */
+    private function validateProfilingConfig(array $config): void
+    {
+        if (
+            !is_int($config['sample_limit'] ?? null)
+            || $config['sample_limit'] < 1
+            || $config['sample_limit'] > 5000
+            || ($config['declared_relationship_mode'] ?? null)
+                !== 'all_declared_constraints'
+            || !is_int($config['max_inferred_to_profile'] ?? null)
+            || $config['max_inferred_to_profile'] < 0
+            || $config['max_inferred_to_profile'] > 500
+        ) {
+            throw new RuntimeException(
+                'Knowledge library profiling configuration has an invalid structure.',
+            );
+        }
+    }
+
+    /**
+     * @param array<string, mixed> $coverage
+     */
+    private function validateCoverage(array $coverage): void
+    {
+        foreach ([
+                     'structural_catalog_complete',
+                     'build_complete',
+                 ] as $key) {
+            if (!is_bool($coverage[$key] ?? null)) {
+                throw new RuntimeException(
+                    'Knowledge library coverage report has an invalid structure.',
+                );
+            }
+        }
+
+        foreach ([
+                     'declared_constraints_total',
+                     'declared_constraints_with_profile_outcome',
+                     'declared_constraints_profiled',
+                     'inferred_candidates_total',
+                     'inferred_candidates_profiled',
+                     'max_inferred_to_profile',
+                 ] as $key) {
+            if (!is_int($coverage[$key] ?? null) || $coverage[$key] < 0) {
+                throw new RuntimeException(
+                    'Knowledge library coverage report has an invalid structure.',
+                );
+            }
+        }
+
+        foreach ([
+                     'declared_profile_status_counts',
+                     'inferred_profile_status_counts',
+                 ] as $key) {
+            if (!is_array($coverage[$key] ?? null)) {
+                throw new RuntimeException(
+                    'Knowledge library coverage report has an invalid structure.',
+                );
+            }
+
+            foreach ($coverage[$key] as $status => $count) {
+                if (!is_string($status) || !is_int($count) || $count < 0) {
+                    throw new RuntimeException(
+                        'Knowledge library coverage report has an invalid structure.',
+                    );
+                }
+            }
+        }
+
+        $declaredOutcomes = array_sum(
+            $coverage['declared_profile_status_counts'],
+        );
+        $inferredOutcomes = array_sum(
+            $coverage['inferred_profile_status_counts'],
+        );
+
+        if (
+            $coverage['declared_constraints_with_profile_outcome']
+                !== $declaredOutcomes
+            || $coverage['declared_constraints_profiled']
+                !== ($coverage['declared_profile_status_counts']['profiled'] ?? 0)
+            || $inferredOutcomes !== $coverage['inferred_candidates_total']
+            || $coverage['inferred_candidates_profiled']
+                !== ($coverage['inferred_profile_status_counts']['profiled'] ?? 0)
+            || $coverage['declared_constraints_with_profile_outcome']
+                > $coverage['declared_constraints_total']
+            || $coverage['inferred_candidates_profiled']
+                > $coverage['inferred_candidates_total']
+            || $coverage['build_complete']
+                !== (
+                    $coverage['structural_catalog_complete']
+                    && $coverage['declared_constraints_with_profile_outcome']
+                        === $coverage['declared_constraints_total']
+                )
+        ) {
+            throw new RuntimeException(
+                'Knowledge library coverage totals do not reconcile.',
+            );
         }
     }
 

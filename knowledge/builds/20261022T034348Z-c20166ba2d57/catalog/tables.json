@@ -1,0 +1,2277 @@
+[
+    {
+        "name": "cfg_abn_blacklist",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_abn_whitelist",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_access_types",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_activity_logs",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_admin_custom_news",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_admin_reports",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_admin_report_sections",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_auditable_files",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_authorised_reps",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_authorised_rep_processing_brokerages",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_authorised_rep_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_base_premium_increase_reasons",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_bdm_targets",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_binder_guideline_capacity",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_binder_umrs",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_bonafide_subcontractor_work",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_branded_wording_contents",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_branded_wording_versions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_brokerages",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_brokerage_head_groups",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_brokerage_occupation_bind_exclusions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_brokerage_occupation_fees",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_brokerage_product_type_immediate_binds",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_brokerage_product_type_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_brokerage_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_categories",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_category_limit_rates",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_category_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_claims_imports_configs",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_config_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_content_blocks",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_content_block_versions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_core_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_countries",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_cover_notices",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_cover_types",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_cover_type_occupation_exclusions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_cover_type_sub_limits",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_cover_type_sub_limit_rates",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_cover_type_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_custom_adjustments",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_custom_adjustment_conditions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_decline_reasons",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_definitions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_diamonds",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_diamond_clarity_grades",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_diamond_colours",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_diamond_item_types",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_diamond_laboratories",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_diamond_shapes",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_document_templates",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_document_template_versions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_email_batches",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_email_batch_failures",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_email_campaigns",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_email_campaign_tracks",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_email_templates",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_email_template_attachments",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_endorsements",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_endorsement_additional_documents",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_endorsement_conflicts",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_endorsement_contents",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_endorsement_triggers",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_endorsement_trigger_groups",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_endorsement_types",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_endorsement_type_links",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_endorsement_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_events",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_event_endorsements",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_event_groups",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_excesses",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_excess_bases",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_excess_limits",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_excess_limit_pools",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_excess_triggers",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_excess_trigger_groups",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_excess_types",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_excess_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_fire_service_levy_rates",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_form_profiles",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_form_profile_actions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_form_profile_triggers",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_form_types",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_guideline_categories",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_guideline_groups",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_industries",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_insurance_group_types",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_insurance_types",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_insurance_type_availability",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_insurance_type_bonafide_subcontractor_options",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_insurance_type_limits",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_insurance_type_limit_availability",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_insurance_type_limit_blurbs",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_insurance_type_limit_blurb_links",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_insurance_type_limit_bundles",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_insurance_type_limit_category_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_insurance_type_limit_rates",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_insurance_type_limit_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_insurance_type_limit_worker_rates",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_insurance_type_occupations",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_insurance_type_occupation_exclusions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_insurance_type_occupation_notices",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_insurance_type_occupation_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_insurance_type_range_rates",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_insurance_type_referral_tags",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_insurance_type_syndicate_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_insurance_type_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_insurance_type_worker_rates",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_invoice_adverts",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_kpi_goals",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_kpi_goal_products",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_ledger_codes",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_limits",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_mail_queue",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_mail_queue_addresses",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_mail_queue_emails",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_mail_queue_large_data",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_marketplaces",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_merchandise_products",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_merchandise_sizes",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_merchandise_variants",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_methods",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_news",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_notification_events",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_notification_event_recipients",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_notification_recipients",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_occupations",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_occupation_groups",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_occupation_group_names",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_occupation_insurance_type_limit_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_occupation_names",
+        "type": "BASE TABLE",
+        "comment": "Stores the main name and alternative names for occupations"
+    },
+    {
+        "name": "cfg_occupation_rates",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_occupation_rate_discounts",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_occupation_rate_increases",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_occupation_rate_minimum_premiums",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_occupation_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_occupation_worker_excess_rates",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_padirect_form_data",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_payment_types",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_pdf_queue",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_pdf_queue_large_data",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_permissions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_policy_claim_reasons",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_policy_classes",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_policy_value_tiers",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_portal_admin_config",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_postcodes",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_product_report_profiles",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_product_report_profile_products",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_product_report_sections",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_product_report_sources",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_product_types",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_product_type_events",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_product_type_policy_classes",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_product_type_prefixes",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_product_type_question_answer_exclusions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_product_type_question_answer_inclusions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_product_type_regions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_product_type_region_exclusions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_product_type_rule_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_product_type_schedule_formats",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_product_type_transaction_fees",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_product_type_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_product_type_variable_class_maps",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_product_type_wordings",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_product_type_wording_versions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_product_wordings",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_promo_events",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_questions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_question_actions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_question_answers",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_question_answer_actions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_question_answer_categories",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_question_categories",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_question_extras",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_question_groups",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_question_group_text",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_question_internal_notes",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_question_text",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_question_triggers",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_question_trigger_groups",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_range_based_rates",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_range_based_rate_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_rate_caps",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_referral_reasons",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_regions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_register_sheets",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_restricted_occupations",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_staff_email_requests",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_staff_roles",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_staff_seating",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_stamp_duty_rates",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_states",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_suppliers",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_survey_types",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_syndicates",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_syndicate_binders",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_syndicate_binder_guidelines",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_syndicate_binder_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_syndicate_brokers",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_syndicate_broker_binder_rates",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_syndicate_lead_in_times",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_syndicate_managing_agents",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_syndicate_manual_worker_multipliers",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_syndicate_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_syndicate_wordings",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_syndicate_wording_contents",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_syndicate_wording_content_approvals",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_syndicate_wording_content_versions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_taxes",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_taxi_drivers",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_taxi_drivers_pl",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_taxi_drivers_pl_duplicates",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_terrorism_rates",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_terrorism_rate_brackets",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_triggers",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_trigger_groups",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_trivia_questions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_trivia_question_answers",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_valentines",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_variables",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_variable_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_vehicle_makes",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_widgets",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_widget_user_types",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_winbeat_export_brokerages",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_winbeat_underwriter_codes",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_wordings",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cfg_wording_contents",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "cz_instance_variables",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "game_scores",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_addresses",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_api_users",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_attempted_csv_uploads",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_authorised_rep_brokerages",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_authorised_rep_user_details",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_bdm_assigned_states",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_bdm_events",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_bdm_event_attendees",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_brokerage_addresses",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_brokerage_change_history",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_brokerage_emails",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_brokerage_notes",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_brokerage_notes_attachments",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_brokerage_occupations",
+        "type": "BASE TABLE",
+        "comment": "Deprecated - use cfg_brokerage_occupations"
+    },
+    {
+        "name": "n_brokerage_policy_import_log",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_brokerage_visits",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_brokerage_visits_addresses",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_brokerage_visits_brokers",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_brokerage_visits_tags",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_brokerage_visits_tag_types",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_brokerage_visit_stats",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_brokers",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_broker_additional_brokerages",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_broker_integration_referrals",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_broker_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_bug_reports",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_businesses",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_call_tracker",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_claims",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_claims_attachments",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_claims_handlers",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_claims_history",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_claims_imports",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_claims_milestones",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_claims_notes",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_clients",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_client_details",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_client_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_core_values_nominations",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_cover_finder_enquiries",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_custom_adjustments",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_custom_adjustment_conditions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_custom_conditions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_daily_banking",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_db_caches",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_declines",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_department_onboarding_checklist",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_developer_autofill_actions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_esitravel_age_risk_loading",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_esitravel_destinations",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_esitravel_policy_destinations",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_esitravel_travellers",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_esitravel_traveller_groups",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_form_responses",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_form_submissions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_hsua_events",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_hsua_event_attendees",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_identifiable_metadata",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_insurance_providers",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_integrity_check_suppressions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_invalid_policy_imports",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_invoices",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_job_process_lock",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_leave_requests",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_ledger_accounts_payable",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_ledger_accounts_receivable",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_ledger_business_account",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_linked_policies",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_linked_policy_groups",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_marketing_leads",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_messages",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_minegard_industries",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_minegard_industry_contacts",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_motor_vehicles",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_motor_vehicle_quotes",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_motor_vehicle_quote_vehicles",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_no_claims_declarations",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_onboarding_checklist_items",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_onboarding_email_schedule",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_payments",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_payment_bordereau",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_payment_exports",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_payment_groups",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_personal_accident_persons",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policies",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_actual_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_addresses",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_adjustments",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_audits",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_audits_assigned_policies",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_audits_entries",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_bind_overrides",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_categories",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_change_history",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_claims",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_claim_lodgements",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_closing_reviews",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_comments",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_covers",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_cover_figures",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_cover_retroactive_dates",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_cover_type_broker_fees",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_cover_type_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_cover_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_cpe_vehicles",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_documents",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_endorsements",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_endorsement_exclusions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_events",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_figure_conversions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_generated_stamp_duty_exemptions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_groups",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_important_reminders",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_insurance_type_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_key_premium_factors",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_motor_vehicles",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_notes",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_occupations",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_payment_type_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_periods",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_period_caches",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_period_cover_changes",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_period_cover_sum_insureds",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_period_custom_excesses",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_period_custom_questions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_period_questions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_period_referral_reasons",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_period_region_splits",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_period_state_figures_breakdowns",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_period_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_premium_figures",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_premium_old_figure_backups",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_premium_payable_figures",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_question_responses",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_question_text_responses",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_reports",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_road_risk_vehicles",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_situations",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_situation_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_policy_things",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_proposals",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_proposal_confirmations",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_proposal_files",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_proposal_periods",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_proposal_questions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_proposal_quotes",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_proposal_quote_files",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_questionnaires",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_questionnaire_attachments",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_questionnaire_questions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_questionnaire_recipients",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_questionnaire_responses",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_questionnaire_schedule",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_question_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_reconciliations",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_refunds",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_reminders",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_remittances",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_renewal_import_data",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_response_comments",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_sanction_entities",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_sanction_individuals",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_short_urls",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_staff",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_staff_onboarding",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_staff_teams",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_staff_team_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_staff_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_statements",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_status_updates",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_surveys",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_syndicate_user_details",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_taxi_club_email_addresses",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_taxi_drivers_personal_accident_coc",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_taxi_driver_csv_batches",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_taxi_driver_insured_vehicles",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_taxi_driver_upload_tables",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_taxi_driver_vehicle_details",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_taxi_driver_vehicle_regos",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_taxi_driver_vehicle_vins",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_tokens",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_trading_names",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_transactions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_trivia_quizzes",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_trivia_quiz_questions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_trivia_quiz_responses",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_trivia_quiz_response_answers",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_uploaded_taxi_csv_files",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_uploaded_taxi_csv_file_rows",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_users",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_user_access_types",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_user_change_history",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_user_notes",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_user_notes_attachments",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_user_permissions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_user_permission_exclusions",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_user_policies",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_user_values",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_vehicle_make_aliases",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_winbeat_clients",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_winbeat_invoice_brokerages",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_winbeat_invoice_policies",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_winbeat_period_invoices",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_winbeat_policy_covers",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "n_winbeat_policy_terms",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "_archived_policies",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "_deleted_periods",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "_deprecated_cfg_cover_type_range_rates",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "_log_api",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "_log_banking",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "_log_config",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "_log_cron",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "_log_debug",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "_log_error",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "_log_fof_ip",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "_log_insight",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "_log_integrity",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "_log_migration",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "_log_payment",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "_log_queue",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "_log_winbeat",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "_old_frontend_data",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "_old_policy_number_map",
+        "type": "BASE TABLE",
+        "comment": ""
+    },
+    {
+        "name": "_throwaway_taxi_log",
+        "type": "BASE TABLE",
+        "comment": ""
+    }
+]

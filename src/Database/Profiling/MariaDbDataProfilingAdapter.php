@@ -29,47 +29,59 @@ final class MariaDbDataProfilingAdapter implements DataProfilingAdapter
         }
 
         $sourceTable = $this->requiredString($candidate, 'source_table');
-        $sourceColumn = $this->requiredString($candidate, 'source_column');
         $targetTable = $this->requiredString($candidate, 'target_table');
-        $targetColumn = $this->requiredString($candidate, 'target_column');
+        $columnPairs = $this->columnPairs($candidate);
 
         $database = $this->requiredString($schema, 'database');
 
         $columns = $this->indexColumns($schema);
-
-        $sourceMetadata = $columns[$sourceTable][$sourceColumn] ?? null;
-        $targetMetadata = $columns[$targetTable][$targetColumn] ?? null;
-
-        if ($sourceMetadata === null || $targetMetadata === null) {
-            throw new InvalidArgumentException(
-                'The candidate references a table or column absent from the discovered schema.'
-            );
+        foreach ($columnPairs as $pair) {
+            if (
+                !isset(
+                    $columns[$sourceTable][$pair['source_column']],
+                    $columns[$targetTable][$pair['target_column']],
+                )
+            ) {
+                throw new InvalidArgumentException(
+                    'The candidate references a table or column absent from the discovered schema.'
+                );
+            }
         }
 
+        $firstPair = $columnPairs[0];
         $baseResult = [
             'source_table' => $sourceTable,
-            'source_column' => $sourceColumn,
+            'source_column' => $firstPair['source_column'],
             'target_table' => $targetTable,
-            'target_column' => $targetColumn,
+            'target_column' => $firstPair['target_column'],
+            'column_pairs' => $columnPairs,
             'sampled_value_count' => 0,
             'matched_value_count' => 0,
             'match_rate' => null,
+            'sample_limit' => $sampleLimit,
+            'sampling_method' => 'non_null_source_rows_limit',
+            'is_exhaustive' => null,
             'status' => 'not_profiled',
         ];
 
-        if (
-            $this->typeFamily((string) $sourceMetadata['data_type'])
-            !== $this->typeFamily((string) $targetMetadata['data_type'])
-        ) {
-            return [
-                ...$baseResult,
-                'status' => 'incompatible_types',
-            ];
+        foreach ($columnPairs as $pair) {
+            $sourceMetadata = $columns[$sourceTable][$pair['source_column']];
+            $targetMetadata = $columns[$targetTable][$pair['target_column']];
+
+            if (
+                $this->typeFamily((string) $sourceMetadata['data_type'])
+                !== $this->typeFamily((string) $targetMetadata['data_type'])
+            ) {
+                return [
+                    ...$baseResult,
+                    'status' => 'incompatible_types',
+                ];
+            }
         }
 
         if (
-            !($targetMetadata['is_primary_key'] ?? false)
-            && !($targetMetadata['is_unique'] ?? false)
+            ($candidate['status'] ?? null) !== 'declared_foreign_key'
+            && !($columns[$targetTable][$firstPair['target_column']]['is_unique'] ?? false)
         ) {
             return [
                 ...$baseResult,
@@ -79,9 +91,19 @@ final class MariaDbDataProfilingAdapter implements DataProfilingAdapter
 
         $quotedDatabase = $this->quoteIdentifier($database);
         $quotedSourceTable = $this->quoteIdentifier($sourceTable);
-        $quotedSourceColumn = $this->quoteIdentifier($sourceColumn);
         $quotedTargetTable = $this->quoteIdentifier($targetTable);
-        $quotedTargetColumn = $this->quoteIdentifier($targetColumn);
+        $selectColumns = [];
+        $notNullConditions = [];
+        $matchConditions = [];
+
+        foreach ($columnPairs as $index => $pair) {
+            $sourceColumn = $this->quoteIdentifier($pair['source_column']);
+            $targetColumn = $this->quoteIdentifier($pair['target_column']);
+            $valueAlias = $this->quoteIdentifier('source_value_' . $index);
+            $selectColumns[] = "{$sourceColumn} AS {$valueAlias}";
+            $notNullConditions[] = "{$sourceColumn} IS NOT NULL";
+            $matchConditions[] = "target_rows.{$targetColumn} = source_values.{$valueAlias}";
+        }
 
         $sql = "
             SELECT
@@ -92,8 +114,7 @@ final class MariaDbDataProfilingAdapter implements DataProfilingAdapter
                             WHEN EXISTS (
                                 SELECT 1
                                 FROM {$quotedDatabase}.{$quotedTargetTable} AS target_rows
-                                WHERE target_rows.{$quotedTargetColumn}
-                                    = source_values.source_value
+                                WHERE " . implode(' AND ', $matchConditions) . "
                             )
                             THEN 1
                             ELSE 0
@@ -102,9 +123,9 @@ final class MariaDbDataProfilingAdapter implements DataProfilingAdapter
                     0
                 ) AS matched_value_count
             FROM (
-                SELECT DISTINCT {$quotedSourceColumn} AS source_value
+                SELECT " . implode(', ', $selectColumns) . "
                 FROM {$quotedDatabase}.{$quotedSourceTable}
-                WHERE {$quotedSourceColumn} IS NOT NULL
+                WHERE " . implode(' AND ', $notNullConditions) . "
                 LIMIT {$sampleLimit}
             ) AS source_values
         ";
@@ -128,10 +149,60 @@ final class MariaDbDataProfilingAdapter implements DataProfilingAdapter
             'match_rate' => $sampledCount === 0
                 ? null
                 : $matchedCount / $sampledCount,
+            'is_exhaustive' => $sampledCount < $sampleLimit,
             'status' => $sampledCount === 0
                 ? 'no_sampled_values'
                 : 'profiled',
         ];
+    }
+
+    /**
+     * @param array<string, mixed> $candidate
+     * @return non-empty-list<array{source_column: string, target_column: string}>
+     */
+    private function columnPairs(array $candidate): array
+    {
+        $pairs = $candidate['column_pairs'] ?? null;
+
+        if ($pairs === null) {
+            $pairs = [[
+                'source_column' => $this->requiredString(
+                    $candidate,
+                    'source_column',
+                ),
+                'target_column' => $this->requiredString(
+                    $candidate,
+                    'target_column',
+                ),
+            ]];
+        }
+
+        if (!is_array($pairs) || !array_is_list($pairs) || $pairs === []) {
+            throw new InvalidArgumentException(
+                'The relationship must contain at least one column pair.',
+            );
+        }
+
+        $validated = [];
+
+        foreach ($pairs as $pair) {
+            if (
+                !is_array($pair)
+                || !is_string($pair['source_column'] ?? null)
+                || !is_string($pair['target_column'] ?? null)
+            ) {
+                throw new InvalidArgumentException(
+                    'Each relationship column pair must contain source and target columns.',
+                );
+            }
+
+            $validated[] = [
+                'source_column' => $pair['source_column'],
+                'target_column' => $pair['target_column'],
+            ];
+        }
+
+        return $validated;
     }
 
     /**

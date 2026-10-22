@@ -6,6 +6,7 @@ namespace CzAiAgent\Tests\Database;
 use CzAiAgent\Database\Profiling\MariaDbDataProfilingAdapter;
 use InvalidArgumentException;
 use PDO;
+use PDOStatement;
 use PHPUnit\Framework\TestCase;
 
 final class MariaDbDataProfilingAdapterTest extends TestCase
@@ -61,6 +62,101 @@ final class MariaDbDataProfilingAdapterTest extends TestCase
         self::assertSame(0, $result['sampled_value_count']);
         self::assertSame(0, $result['matched_value_count']);
         self::assertNull($result['match_rate']);
+    }
+
+    public function testBuildsTupleComparisonForCompositeDeclaredForeignKey(): void
+    {
+        $pdo = new class extends PDO {
+            public string $query = '';
+
+            public function __construct()
+            {
+            }
+
+            public function query(
+                string $query,
+                ?int $fetchMode = null,
+                mixed ...$fetchModeArgs,
+            ): PDOStatement|false {
+                $this->query = $query;
+
+                return new class extends PDOStatement {
+                    public function __construct()
+                    {
+                    }
+
+                    public function fetch(
+                        int $mode = PDO::FETCH_DEFAULT,
+                        int $cursorOrientation = PDO::FETCH_ORI_NEXT,
+                        int $cursorOffset = 0,
+                    ): mixed {
+                        return [
+                            'sampled_value_count' => 4,
+                            'matched_value_count' => 3,
+                        ];
+                    }
+                };
+            }
+        };
+
+        $schema = $this->schema();
+        $schema['columns'] = [
+            [
+                'table_name' => 'claims',
+                'name' => 'tenant_id',
+                'data_type' => 'int',
+            ],
+            [
+                'table_name' => 'claims',
+                'name' => 'claim_id',
+                'data_type' => 'int',
+            ],
+            [
+                'table_name' => 'policies',
+                'name' => 'tenant_id',
+                'data_type' => 'int',
+            ],
+            [
+                'table_name' => 'policies',
+                'name' => 'policy_id',
+                'data_type' => 'int',
+            ],
+        ];
+        $candidate = [
+            'source_table' => 'claims',
+            'target_table' => 'policies',
+            'status' => 'declared_foreign_key',
+            'column_pairs' => [
+                [
+                    'source_column' => 'tenant_id',
+                    'target_column' => 'tenant_id',
+                    'ordinal_position' => 1,
+                ],
+                [
+                    'source_column' => 'claim_id',
+                    'target_column' => 'policy_id',
+                    'ordinal_position' => 2,
+                ],
+            ],
+        ];
+
+        $result = (new MariaDbDataProfilingAdapter($pdo))->profileRelationship(
+            $candidate,
+            $schema,
+            sampleLimit: 25,
+        );
+
+        self::assertSame('profiled', $result['status']);
+        self::assertSame(0.75, $result['match_rate']);
+        self::assertSame(25, $result['sample_limit']);
+        self::assertStringContainsString(
+            'SELECT `tenant_id` AS `source_value_0`, `claim_id` AS `source_value_1`',
+            $pdo->query,
+        );
+        self::assertStringContainsString(
+            'target_rows.`tenant_id` = source_values.`source_value_0` AND target_rows.`policy_id` = source_values.`source_value_1`',
+            $pdo->query,
+        );
     }
 
     private function createUninitialisedPdo(): PDO

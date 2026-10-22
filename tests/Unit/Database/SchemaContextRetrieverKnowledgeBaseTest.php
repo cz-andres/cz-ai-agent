@@ -100,11 +100,13 @@ final class SchemaContextRetrieverKnowledgeBaseTest extends TestCase
                     'is_indexed' => true,
                 ],
             ],
+            'indexes' => [],
             'foreign_keys' => [],
+            'foreign_key_constraints' => [],
         ];
 
         return [
-            'format_version' => 2,
+            'format_version' => 3,
             'generated_at' => '2026-01-01T00:00:00+00:00',
             'source' => [
                 'database' => 'test_database',
@@ -113,11 +115,27 @@ final class SchemaContextRetrieverKnowledgeBaseTest extends TestCase
             'schema_summary' => [
                 'table_count' => 2,
                 'column_count' => 2,
+                'index_count' => 0,
                 'declared_foreign_key_count' => 0,
+                'foreign_key_column_pair_count' => 0,
             ],
             'profiling_config' => [
                 'sample_limit' => 100,
-                'max_declared_to_profile' => 5,
+                'declared_relationship_mode' => 'all_declared_constraints',
+                'max_inferred_to_profile' => 20,
+            ],
+            'coverage' => [
+                'structural_catalog_complete' => true,
+                'declared_constraints_total' => 0,
+                'declared_constraints_with_profile_outcome' => 0,
+                'declared_constraints_profiled' => 0,
+                'declared_profile_status_counts' => [],
+                'inferred_candidates_total' => 1,
+                'inferred_candidates_profiled' => 0,
+                'inferred_profile_status_counts' => [
+                    'skipped_candidate_limit' => 1,
+                ],
+                'build_complete' => true,
                 'max_inferred_to_profile' => 20,
             ],
             'schema' => $schema,

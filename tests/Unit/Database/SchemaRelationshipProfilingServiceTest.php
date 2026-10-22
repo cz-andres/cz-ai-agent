@@ -11,6 +11,118 @@ use PHPUnit\Framework\TestCase;
 
 final class SchemaRelationshipProfilingServiceTest extends TestCase
 {
+    public function testProfilesEveryDeclaredConstraintIncludingCompositeOnes(): void
+    {
+        $schema = [
+            'database' => 'test_database',
+            'tables' => [
+                ['name' => 'accounts', 'type' => 'BASE TABLE', 'comment' => ''],
+                ['name' => 'account_links', 'type' => 'BASE TABLE', 'comment' => ''],
+                ['name' => 'audit_records', 'type' => 'BASE TABLE', 'comment' => ''],
+            ],
+            'columns' => [
+                [
+                    'table_name' => 'accounts',
+                    'name' => 'tenant_id',
+                    'data_type' => 'int',
+                    'is_primary_key' => true,
+                    'is_unique' => false,
+                ],
+                [
+                    'table_name' => 'accounts',
+                    'name' => 'account_id',
+                    'data_type' => 'int',
+                    'is_primary_key' => true,
+                    'is_unique' => false,
+                ],
+                [
+                    'table_name' => 'account_links',
+                    'name' => 'tenant_id',
+                    'data_type' => 'int',
+                    'is_primary_key' => false,
+                    'is_unique' => false,
+                ],
+                [
+                    'table_name' => 'account_links',
+                    'name' => 'account_id',
+                    'data_type' => 'int',
+                    'is_primary_key' => false,
+                    'is_unique' => false,
+                ],
+                [
+                    'table_name' => 'audit_records',
+                    'name' => 'account_id',
+                    'data_type' => 'int',
+                    'is_primary_key' => false,
+                    'is_unique' => false,
+                ],
+            ],
+            'foreign_keys' => [
+                [
+                    'name' => 'fk_account_links_accounts',
+                    'ordinal_position' => 1,
+                    'source_table' => 'account_links',
+                    'source_column' => 'tenant_id',
+                    'target_schema' => 'test_database',
+                    'target_table' => 'accounts',
+                    'target_column' => 'tenant_id',
+                ],
+                [
+                    'name' => 'fk_account_links_accounts',
+                    'ordinal_position' => 2,
+                    'source_table' => 'account_links',
+                    'source_column' => 'account_id',
+                    'target_schema' => 'test_database',
+                    'target_table' => 'accounts',
+                    'target_column' => 'account_id',
+                ],
+            ],
+        ];
+
+        $adapter = new class implements DataProfilingAdapter {
+            public array $profiledConstraints = [];
+
+            public function profileRelationship(
+                array $candidate,
+                array $schema,
+                int $sampleLimit = 500,
+            ): array {
+                $this->profiledConstraints[] = $candidate;
+
+                return [
+                    'source_table' => $candidate['source_table'],
+                    'source_column' => $candidate['source_column'],
+                    'target_table' => $candidate['target_table'],
+                    'target_column' => $candidate['target_column'],
+                    'sampled_value_count' => 12,
+                    'matched_value_count' => 12,
+                    'match_rate' => 1.0,
+                    'status' => 'profiled',
+                ];
+            }
+        };
+
+        $result = (new SchemaRelationshipProfilingService(
+            new SchemaRelationshipAnalyzer(),
+            new RelationshipProfilingService($adapter),
+        ))->analyzeAndProfile(
+            $schema,
+            sampleLimit: 20,
+            maxInferredToProfile: 0,
+        );
+
+        self::assertCount(1, $adapter->profiledConstraints);
+        self::assertCount(
+            2,
+            $adapter->profiledConstraints[0]['column_pairs'],
+        );
+        self::assertSame(
+            'profiled',
+            $result['declared_relationships'][0]['profiling']['status'],
+        );
+        self::assertSame([], $result['inferred_candidates']);
+    }
+
     public function testAnalysesAndProfilesInferredRelationships(): void
     {
         $schema = [
@@ -132,11 +244,10 @@ final class SchemaRelationshipProfilingServiceTest extends TestCase
             new RelationshipProfilingService($adapter),
     );
 
-        $result = $service->analyzeAndProfile(
-            $schema,
-            sampleLimit: 10,
-            maxDeclaredToProfile: 20,
-            maxInferredToProfile: 0,
+    $result = $service->analyzeAndProfile(
+        $schema,
+        sampleLimit: 10,
+        maxInferredToProfile: 0,
     );
 
         self::assertNotEmpty($result['inferred_candidates']);

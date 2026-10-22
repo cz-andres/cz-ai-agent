@@ -38,6 +38,50 @@ final class SchemaRelationshipAnalyzerTest extends TestCase
         self::assertSame([], $result['inferred_candidates']);
     }
 
+    public function testPreservesCompositeDeclaredForeignKeyAsOneConstraint(): void
+    {
+        $schema = $this->schema(
+            tables: ['accounts', 'account_links'],
+            columns: [
+                $this->column('account_links', 'tenant_id', 'int'),
+                $this->column('account_links', 'account_id', 'int'),
+            ],
+            foreignKeys: [
+                [
+                    'name' => 'fk_account_link_account',
+                    'ordinal_position' => 1,
+                    'source_table' => 'account_links',
+                    'source_column' => 'tenant_id',
+                    'target_schema' => 'test_database',
+                    'target_table' => 'accounts',
+                    'target_column' => 'tenant_id',
+                ],
+                [
+                    'name' => 'fk_account_link_account',
+                    'ordinal_position' => 2,
+                    'source_table' => 'account_links',
+                    'source_column' => 'account_id',
+                    'target_schema' => 'test_database',
+                    'target_table' => 'accounts',
+                    'target_column' => 'account_id',
+                ],
+            ],
+        );
+
+        $relationship = (new SchemaRelationshipAnalyzer())
+            ->analyze($schema)['declared_relationships'][0];
+
+        self::assertSame('tenant_id', $relationship['source_column']);
+        self::assertSame(
+            ['tenant_id', 'account_id'],
+            array_column($relationship['column_pairs'], 'source_column'),
+        );
+        self::assertSame(
+            [1, 2],
+            array_column($relationship['column_pairs'], 'ordinal_position'),
+        );
+    }
+
     public function testInfersCandidateFromColumnAndTableNames(): void
     {
         $schema = $this->schema(

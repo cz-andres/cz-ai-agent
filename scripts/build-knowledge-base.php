@@ -35,10 +35,15 @@ $builder = new KnowledgeSnapshotBuilder(
     new SchemaFingerprint(),
 );
 
+$sampleLimit = environmentInteger('KNOWLEDGE_PROFILE_SAMPLE_LIMIT', 100);
+$maxInferredToProfile = environmentInteger(
+    'KNOWLEDGE_MAX_INFERRED_TO_PROFILE',
+    20,
+);
+
 $snapshot = $builder->build(
-    sampleLimit: 100,
-    maxDeclaredToProfile: 5,
-    maxInferredToProfile: 20,
+    sampleLimit: $sampleLimit,
+    maxInferredToProfile: $maxInferredToProfile,
 );
 
 $knowledgePath = getenv('KNOWLEDGE_LIBRARY_PATH')
@@ -59,4 +64,24 @@ echo json_encode([
             count($snapshot['relationships']['declared_relationships']),
         'inferred_candidates' =>
             count($snapshot['relationships']['inferred_candidates']),
+        'coverage' => $snapshot['coverage'],
     ], JSON_PRETTY_PRINT | JSON_THROW_ON_ERROR) . PHP_EOL;
+
+function environmentInteger(string $name, int $default): int
+{
+    $value = getenv($name);
+
+    if ($value === false || $value === '') {
+        return $default;
+    }
+
+    $integer = filter_var($value, FILTER_VALIDATE_INT);
+
+    if (!is_int($integer)) {
+        throw new InvalidArgumentException(
+            "Environment variable {$name} must be an integer.",
+        );
+    }
+
+    return $integer;
+}

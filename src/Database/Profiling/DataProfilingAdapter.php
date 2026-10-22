@@ -6,7 +6,7 @@ namespace CzAiAgent\Database\Profiling;
 interface DataProfilingAdapter
 {
     /**
-     * Compare sampled, non-null values in a source column with a target column.
+     * Compare sampled, non-null source values or tuples with a target key.
      *
      * The supplied schema must be used to validate all table and column names
      * before querying. Actual database values must not be included in the result.
@@ -23,9 +23,13 @@ interface DataProfilingAdapter
      *     source_column: string,
      *     target_table: string,
      *     target_column: string,
+     *     column_pairs: list<array{source_column: string, target_column: string}>,
      *     sampled_value_count: int,
      *     matched_value_count: int,
      *     match_rate: float|null,
+     *     sample_limit: int,
+     *     sampling_method: string,
+     *     is_exhaustive: bool|null,
      *     status: string
      * }
      */

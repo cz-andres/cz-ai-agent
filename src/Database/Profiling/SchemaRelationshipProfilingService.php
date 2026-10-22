@@ -22,7 +22,8 @@ final class SchemaRelationshipProfilingService
      *     database: string,
      *     tables: list<array<string, mixed>>,
      *     columns: list<array<string, mixed>>,
-     *     foreign_keys: list<array<string, mixed>>
+     *     foreign_keys: list<array<string, mixed>>,
+     *     foreign_key_constraints?: list<array<string, mixed>>
      * } $schema
      * @return array{
      *     declared_relationships: list<array<string, mixed>>,
@@ -32,7 +33,6 @@ final class SchemaRelationshipProfilingService
     public function analyzeAndProfile(
         array $schema,
         int $sampleLimit = 100,
-        int $maxDeclaredToProfile = 20,
         int $maxInferredToProfile = 20,
     ): array {
         if ($sampleLimit < 1 || $sampleLimit > 5000) {
@@ -41,15 +41,10 @@ final class SchemaRelationshipProfilingService
             );
         }
 
-        foreach ([
-                     'maxDeclaredToProfile' => $maxDeclaredToProfile,
-                     'maxInferredToProfile' => $maxInferredToProfile,
-                 ] as $name => $limit) {
-            if ($limit < 0 || $limit > 500) {
-                throw new InvalidArgumentException(
-                    "{$name} must be between 0 and 500."
-                );
-            }
+        if ($maxInferredToProfile < 0 || $maxInferredToProfile > 500) {
+            throw new InvalidArgumentException(
+                'maxInferredToProfile must be between 0 and 500.'
+            );
         }
 
         $analysis = $this->analyzer->analyze($schema);
@@ -59,7 +54,7 @@ final class SchemaRelationshipProfilingService
                 $analysis['declared_relationships'],
                 $schema,
                 $sampleLimit,
-                $maxDeclaredToProfile,
+                count($analysis['declared_relationships']),
                 false,
             ),
             'inferred_candidates' => $this->profileGroup(

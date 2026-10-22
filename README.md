@@ -56,9 +56,17 @@ switches `knowledge/current.json` only after all files are written. The active
 build has a manifest and separate `catalog/`, `relationships/`, and `profiling/`
 artifacts; the manifest records checksums so incomplete or mixed builds are
 rejected. Existing `knowledge/snapshot.json` files are not imported or used.
+The catalog includes full ordered indexes and unique constraints as well as
+foreign-key column pairs. Each build profiles every declared foreign-key
+constraint using non-null source rows capped per constraint; inferred
+candidates remain ranked and capped. The manifest reports coverage and makes
+clear which results are sampled, unprofiled, or structurally complete.
 
 Set `KNOWLEDGE_LIBRARY_PATH` to build or read a library at another path. This
 can be useful for isolated builds without replacing the active project library.
+Use `KNOWLEDGE_PROFILE_SAMPLE_LIMIT` and
+`KNOWLEDGE_MAX_INFERRED_TO_PROFILE` to configure per-constraint sample size and
+the inferred-candidate profiling cap.
 
 ## Development
 
